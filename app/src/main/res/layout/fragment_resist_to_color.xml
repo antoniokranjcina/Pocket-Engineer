@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/resistor_body"
+        android:layout_width="190dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="32dp"
+        android:background="#DEB887"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/resistor_body_1"
+        android:layout_width="50dp"
+        android:layout_height="15dp"
+        android:background="#B6A7A7"
+        app:layout_constraintBottom_toBottomOf="@+id/resistor_body"
+        app:layout_constraintEnd_toStartOf="@+id/resistor_body"
+        app:layout_constraintTop_toTopOf="@+id/resistor_body" />
+
+    <TextView
+        android:id="@+id/resistor_body_2"
+        android:layout_width="50dp"
+        android:layout_height="15dp"
+        android:background="#B6A7A7"
+        app:layout_constraintBottom_toBottomOf="@+id/resistor_body"
+        app:layout_constraintStart_toEndOf="@+id/resistor_body"
+        app:layout_constraintTop_toTopOf="@+id/resistor_body" />
+
+    <TextView
+        android:id="@+id/color_first_digit"
+        android:layout_width="15dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/resistor_body"
+        app:layout_constraintTop_toTopOf="@+id/resistor_body" />
+
+    <TextView
+        android:id="@+id/color_second_digit"
+        android:layout_width="15dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:background="#00000000"
+        app:layout_constraintBaseline_toBaselineOf="@+id/color_first_digit"
+        app:layout_constraintStart_toEndOf="@+id/color_first_digit" />
+
+    <TextView
+        android:id="@+id/color_multiplier"
+        android:layout_width="15dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:background="#00000000"
+        app:layout_constraintBaseline_toBaselineOf="@+id/color_second_digit"
+        app:layout_constraintStart_toEndOf="@+id/color_second_digit" />
+
+    <TextView
+        android:id="@+id/color_tolerance"
+        android:layout_width="15dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="28dp"
+        android:background="#FFD700"
+        app:layout_constraintBaseline_toBaselineOf="@+id/color_multiplier"
+        app:layout_constraintStart_toEndOf="@+id/color_multiplier"
+        android:layout_marginLeft="28dp" />
+
+    <EditText
+        android:id="@+id/resist_input_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/enter_resist_hint"
+        android:inputType="numberSigned|numberDecimal"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/resistor_body_1"
+        app:layout_constraintTop_toBottomOf="@+id/resistor_body" />
+
+    <Button
+        android:id="@+id/button_calculate"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/calculate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resist_input_editText" />
+
+    <Button
+        android:id="@+id/button_reset_colors"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/button_reset"
+        app:layout_constraintEnd_toEndOf="@+id/button_calculate"
+        app:layout_constraintStart_toStartOf="@+id/button_calculate"
+        app:layout_constraintTop_toBottomOf="@+id/button_calculate" />
+
+    <Spinner
+        android:id="@+id/spinner_resistor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/resist_input_editText"
+        app:layout_constraintEnd_toEndOf="@+id/resistor_body_2"
+        app:layout_constraintTop_toTopOf="@+id/resist_input_editText" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

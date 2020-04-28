@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/angle_calculator"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="@string/angle_calculator" />
+
+    <item
+        android:id="@+id/capacitor_calculator"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="@string/capacitor_calculator" />
+
+    <item
+        android:id="@+id/decibel_calculator"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="@string/decibel_calculator" />
+
+    <item
+        android:id="@+id/numbering_system_calculator"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="@string/numbering_system_calculator" />
+
+    <item
+        android:id="@+id/resistor_calculator"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="@string/resistor_calculator" />
+
+</menu>
