@@ -62,10 +62,14 @@ final class Calculator {
                 number = Integer.parseInt(numberToConvert.getText().toString());
             }
 
-            if (fromBase > inBase) {
-                convertHighToLow(fromBase, inBase, number, result);
+            if (checkNumber(number, fromBase)) {
+                if (fromBase > inBase) {
+                    convertHighToLow(fromBase, inBase, number, result);
+                } else {
+                    convertLowToHigh(fromBase, inBase, number, result);
+                }
             } else {
-                convertLowToHigh(fromBase, inBase, number, result);
+                Toast.makeText(fragment.getActivity(), "Number digits cannot be greater than number's base.", Toast.LENGTH_SHORT).show();
             }
         } catch (Exception e) {
             Toast.makeText(fragment.getActivity(), "Number to Convert cannot be empty.", Toast.LENGTH_SHORT).show();
@@ -120,16 +124,16 @@ final class Calculator {
         }
         return convertedNumber;
     }
+
+    private static boolean checkNumber(int number, int base) {
+        int digit;
+        while (number > 0) {
+            digit = number % 10;
+            number /= 10;
+            if(digit >= base) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
