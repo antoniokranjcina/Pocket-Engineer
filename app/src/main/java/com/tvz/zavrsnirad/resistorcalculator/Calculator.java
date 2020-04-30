@@ -326,7 +326,7 @@ final class Calculator {
                 }
             }
         } catch (Exception e) {
-            Toast.makeText(fragment.getActivity(), "You have to enter a number!", Toast.LENGTH_LONG).show();
+            Toast.makeText(fragment.getActivity(), "Resist Value cannot be empty!", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -92,17 +92,17 @@
 
     <Button
         android:id="@+id/button_calculate"
-        android:layout_width="120dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/calculate"
+        android:text="@string/button_convert"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resist_input_editText" />
 
     <Button
         android:id="@+id/button_reset_colors"
-        android:layout_width="120dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/button_reset"

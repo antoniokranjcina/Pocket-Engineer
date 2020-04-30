@@ -32,7 +32,7 @@ final class Calculator {
                             double degrees = Double.parseDouble(editTextDegree.getText().toString());
                             calculateAngleDegree(degrees, editTextRadian, editTextGradient);
                         } catch (NumberFormatException e) {
-                            Toast.makeText(fragment.getActivity(), "You have to enter a number!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(fragment.getActivity(), "Degree Value cannot be empty.", Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case R.id.radianButton:
@@ -40,7 +40,7 @@ final class Calculator {
                             double radian = Double.parseDouble(editTextRadian.getText().toString());
                             calculateAngleRadian(radian, editTextDegree, editTextGradient);
                         } catch (NumberFormatException e) {
-                            Toast.makeText(fragment.getActivity(), "You have to enter a number!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(fragment.getActivity(), "Radian Value cannot be empty.", Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case R.id.gradientButton:
@@ -48,7 +48,7 @@ final class Calculator {
                             double gradient = Double.parseDouble(editTextGradient.getText().toString());
                             calculateAngleGradient(gradient, editTextDegree, editTextRadian);
                         } catch (NumberFormatException e) {
-                            Toast.makeText(fragment.getActivity(), "You have to enter a number!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(fragment.getActivity(), "Gradient Value cannot be empty.", Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case R.id.resetAngleButton:

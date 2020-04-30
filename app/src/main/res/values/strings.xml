@@ -22,11 +22,11 @@
     <string name="milli_watts_ext">mW</string>
     <string name="db_text">dB</string>
     <string name="dbm_text">dBm</string>
-    <string name="watts_hint">Type Watts Value</string>
-    <string name="milli_watts_hint">Type Milli Watts Value</string>
-    <string name="db_hint">Type dB Value</string>
-    <string name="dbm_hint">Type dBm Value</string>
-    <string name="output_power_hint">Type Output Power</string>
+    <string name="watts_hint">Input Watts Value</string>
+    <string name="milli_watts_hint">Input Milli Watts Value</string>
+    <string name="db_hint">Input dB Value</string>
+    <string name="dbm_hint">Input dBm Value</string>
+    <string name="output_power_hint">Input Output Power</string>
     <string name="button_convert">Convert</string>
     <string name="button_reset">Reset</string>
 
@@ -41,18 +41,11 @@
     <string name="degree_text">Degree</string>
     <string name="radian_text">Radian</string>
     <string name="gradient_text">Gradient</string>
-    <string name="degree_hint">Type Degree Value</string>
-    <string name="radian_hint">Type Radian Value</string>
-    <string name="gradient_hint">Type Gradient Value</string>
-    <string name="round_hint">Type Decimal Places</string>
+    <string name="degree_hint">Input Degree Value</string>
+    <string name="radian_hint">Input Radian Value</string>
+    <string name="gradient_hint">Input Gradient Value</string>
+    <string name="round_hint">Input Decimal Places</string>
 
-
-    <string name="db_home_text">
-        This part of application is determined for calculating power, you can enter a value in watt, milliwatt,
-        dB or dBm and see easily see the conversion into other values. Decibel is calculated by this formula:
-    </string>
-    <string name="db_formula">P(db) = 10 log(P1(W) / P2(W)</string>
-    <string name="db_home_text_part_2" />
 
 <!--    resistor calculator-->
     <string name="click_to_the_bottom_buttons">Click to the Bottom Buttons</string>
@@ -88,12 +81,28 @@
     <string name="percentage_005">± 0.05%</string>
     <string name="percentage_5">± 5%</string>
     <string name="percentage_10">± 10%</string>
-    <string name="enter_resist_hint">Please input resist</string>
+    <string name="enter_resist_hint">Input Resist</string>
     <string name="calculate">Calculate</string>
     <string-array name="spinner_resistor_values">
         <item>Ω</item>
         <item>kΩ</item>
         <item>MΩ</item>
+    </string-array>
+
+    <string name="enter_number_to_convert">Input Number to Convert</string>
+    <string name="from">From base: </string>
+    <string name="in">In base: </string>
+    <string-array name="spinner_num_sys_calculator">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>16</item>
     </string-array>
 
 

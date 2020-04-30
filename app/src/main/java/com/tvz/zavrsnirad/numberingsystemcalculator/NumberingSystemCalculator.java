@@ -7,6 +7,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,37 +23,23 @@ public class NumberingSystemCalculator extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        setHasOptionsMenu(true);
         View rootView = inflater.inflate(R.layout.fragment_numbering_system_calculator, container, false);
 
-        blankMethod();
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this.getActivity(),
+                android.R.layout.simple_list_item_1,
+                this.getResources().getStringArray(R.array.spinner_num_sys_calculator));
+
+        Spinner spinnerFrom = rootView.findViewById(R.id.spinner_from_base);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerFrom.setAdapter(adapter);
+
+        Spinner spinnerIn = rootView.findViewById(R.id.spinner_in_base);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerIn.setAdapter(adapter);
+        spinnerIn.setSelection(1);
+
+        Calculator.calculate(rootView, this, spinnerFrom, spinnerIn);
 
         return rootView;
-    }
-
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.example_menu, menu);
-        menu.findItem(R.id.settings_w_output_power).setVisible(false);
-        menu.findItem(R.id.settings_variable_output_power).setVisible(false);
-        menu.findItem(R.id.settings_history).setVisible(false);
-        menu.findItem(R.id.settings_resist_to_color).setVisible(false);
-        menu.findItem(R.id.settings_color_to_resist).setVisible(false);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.settings_settings:
-                Toast.makeText(getActivity(), "Item 2 Selected", Toast.LENGTH_LONG).show();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    private void blankMethod() {
-
     }
 }

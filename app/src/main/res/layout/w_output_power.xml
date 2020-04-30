@@ -90,7 +90,7 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/dbm_hint"
-        android:inputType="numberSigned|textPersonName|numberDecimal"
+        android:inputType="numberSigned|numberDecimal"
         android:textSize="15sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/dbmButton"
         app:layout_constraintEnd_toEndOf="@+id/dbEditText" />

@@ -35,7 +35,7 @@ final class Calculator {
                 try {
                     outputPower = recalculateInWatts(spinnerValue, editTextOutputPower.getText().toString());
                 } catch (NumberFormatException e) {
-                    Toast.makeText(fragment.getActivity(), "You have to enter a number!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(fragment.getActivity(), "Output Power cannot be empty.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -45,7 +45,7 @@ final class Calculator {
                             double watts = Double.parseDouble(editTextWatts.getText().toString());
                             calculatePowerWatts(outputPower, watts, editTextMilliWatts, editTextDb, editTextDbm);
                         } catch (NumberFormatException e) {
-                            Toast.makeText(fragment.getActivity(), "You have to enter a number!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(fragment.getActivity(), "Watts Value cannot be empty.", Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case R.id.mwButton:
@@ -53,7 +53,7 @@ final class Calculator {
                             double milliWatts = Double.parseDouble(editTextMilliWatts.getText().toString());
                             calculatePowerMilliWatts(outputPower, milliWatts, editTextWatts, editTextDb, editTextDbm);
                         } catch (NumberFormatException e) {
-                            Toast.makeText(fragment.getActivity(), "You have to enter a number!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(fragment.getActivity(), "Milli Watts Value cannot be empty", Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case R.id.dbButton:
@@ -61,7 +61,7 @@ final class Calculator {
                             double db = Double.parseDouble(editTextDb.getText().toString());
                             calculatePowerDb(outputPower, db, editTextWatts, editTextMilliWatts, editTextDbm);
                         } catch (NumberFormatException e) {
-                            Toast.makeText(fragment.getActivity(), "You have to enter a number!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(fragment.getActivity(), "dB Value cannot be empty", Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case R.id.dbmButton:
@@ -69,7 +69,7 @@ final class Calculator {
                             double dbm = Double.parseDouble(editTextDbm.getText().toString());
                             calculatePowerDbm(outputPower, dbm, editTextWatts, editTextMilliWatts, editTextDb);
                         } catch (NumberFormatException e) {
-                            Toast.makeText(fragment.getActivity(), "You have to enter a number!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(fragment.getActivity(), "dBm Value cannot be empty", Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case R.id.resetPowerButton:
@@ -107,7 +107,7 @@ final class Calculator {
                             double watts = Double.parseDouble(editTextWatts.getText().toString());
                             calculatePowerWatts(watts, editTextMilliWatts, editTextDb, editTextDbm);
                         } catch (NumberFormatException e) {
-                            Toast.makeText(fragment.getActivity(), "You have to enter a number!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(fragment.getActivity(), "Watts Value cannot be empty.", Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case R.id.mwButton:
@@ -115,7 +115,7 @@ final class Calculator {
                             double milliWatts = Double.parseDouble(editTextMilliWatts.getText().toString());
                             calculatePowerMilliWatts(milliWatts, editTextWatts, editTextDb, editTextDbm);
                         } catch (NumberFormatException e) {
-                            Toast.makeText(fragment.getActivity(), "You have to enter a number!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(fragment.getActivity(), "Milli Watts Value cannot be empty.", Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case R.id.dbButton:
@@ -123,7 +123,7 @@ final class Calculator {
                             double db = Double.parseDouble(editTextDb.getText().toString());
                             calculatePowerDb(db, editTextWatts, editTextMilliWatts, editTextDbm);
                         } catch (NumberFormatException e) {
-                            Toast.makeText(fragment.getActivity(), "You have to enter a number!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(fragment.getActivity(), "dB Value cannot be empty.", Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case R.id.dbmButton:
@@ -131,7 +131,7 @@ final class Calculator {
                             double dbm = Double.parseDouble(editTextDbm.getText().toString());
                             calculatePowerDbm(dbm, editTextWatts, editTextMilliWatts, editTextDb);
                         } catch (NumberFormatException e) {
-                            Toast.makeText(fragment.getActivity(), "You have to enter a number!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(fragment.getActivity(), "dBm Value cannot be empty.", Toast.LENGTH_SHORT).show();
                         }
                         break;
                     case R.id.resetPowerButton:
