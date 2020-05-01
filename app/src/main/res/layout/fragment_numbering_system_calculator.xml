@@ -13,11 +13,13 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/enter_number_to_convert"
-        android:inputType="textPersonName"
+        android:inputType="textNoSuggestions"
+        android:digits="0123456789ABCDEFabcdef"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextFields" />
 
     <Spinner
         android:id="@+id/spinner_from_base"

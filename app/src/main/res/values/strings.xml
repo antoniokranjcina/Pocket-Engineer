@@ -105,5 +105,17 @@
         <item>16</item>
     </string-array>
 
+    <string name="capacitor_1">C1</string>
+    <string name="capacitor_2">C2</string>
+    <string name="serial">Serial </string>
+    <string name="parallel">Parallel </string>
+    <string-array name="spinner_capacitor_units">
+        <item>F</item>
+        <item>mF</item>
+        <item>μF</item>
+        <item>nF</item>
+        <item>pF</item>
+    </string-array>
+
 
 </resources>
