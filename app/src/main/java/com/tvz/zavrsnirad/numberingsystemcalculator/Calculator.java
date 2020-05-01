@@ -71,6 +71,8 @@ final class Calculator {
             } else {
                 Toast.makeText(fragment.getActivity(), "Number digits cannot be greater than number's base.", Toast.LENGTH_SHORT).show();
             }
+        } catch (NumberFormatException e) {
+            Toast.makeText(fragment.getActivity(), "Invalid input.", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Toast.makeText(fragment.getActivity(), "Number to Convert cannot be empty.", Toast.LENGTH_SHORT).show();
         }

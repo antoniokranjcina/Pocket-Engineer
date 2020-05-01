@@ -1,4 +1,4 @@
-package com.tvz.zavrsnirad.resistorcalculator;
+package com.tvz.zavrsnirad.resistorcalculator.colorstoresist;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.tvz.zavrsnirad.FragmentHelper;
 import com.tvz.zavrsnirad.R;
+import com.tvz.zavrsnirad.resistorcalculator.resisttocolors.ResistToColorsFragment;
 
 public class ResistorCalculatorFragment extends Fragment {
     @Nullable

@@ -1,4 +1,4 @@
-package com.tvz.zavrsnirad.resistorcalculator;
+package com.tvz.zavrsnirad.resistorcalculator.resisttocolors;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import com.tvz.zavrsnirad.capacitor.CapacitorFragment;
 import com.tvz.zavrsnirad.dbcalculator.DecibelCalculatorFragment;
 import com.tvz.zavrsnirad.numberingsystemcalculator.NumberingSystemCalculator;
-import com.tvz.zavrsnirad.resistorcalculator.ResistorCalculatorFragment;
+import com.tvz.zavrsnirad.resistorcalculator.colorstoresist.ResistorCalculatorFragment;
 import com.tvz.zavrsnirad.anglecalculator.AngleCalculatorFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
