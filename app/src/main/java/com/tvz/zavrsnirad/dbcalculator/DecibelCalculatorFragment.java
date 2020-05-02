@@ -43,12 +43,10 @@ public class DecibelCalculatorFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.example_menu, menu);
-        menu.findItem(R.id.settings_history).setVisible(false);
         menu.findItem(R.id.settings_w_output_power).setVisible(false);
-        menu.findItem(R.id.settings_about).setVisible(false);
-        menu.findItem(R.id.settings_settings).setVisible(false);
         menu.findItem(R.id.settings_resist_to_color).setVisible(false);
         menu.findItem(R.id.settings_color_to_resist).setVisible(false);
+        menu.findItem(R.id.settings_resistance_calculator).setVisible(false);
         super.onCreateOptionsMenu(menu, inflater);
     }
 

@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/settings_about"
-        android:title="@string/settings_menu_about"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/settings_settings"
-        android:title="@string/settings_menu_settings"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/settings_history"
-        android:title="@string/settings_menu_History"
-        app:showAsAction="never" />
 
     <item
         android:id="@+id/settings_variable_output_power"
@@ -33,6 +20,11 @@
     <item
         android:id="@+id/settings_color_to_resist"
         android:title="@string/settings_menu_resist_to_colors"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/settings_resistance_calculator"
+        android:title="@string/settings_menu_resistance_calculator"
         app:showAsAction="never" />
 
 </menu>

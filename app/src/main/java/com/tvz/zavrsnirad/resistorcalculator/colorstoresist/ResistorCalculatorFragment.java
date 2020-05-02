@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.tvz.zavrsnirad.FragmentHelper;
 import com.tvz.zavrsnirad.R;
+import com.tvz.zavrsnirad.resistorcalculator.resistancecalculator.ResistanceCalculatorFragment;
 import com.tvz.zavrsnirad.resistorcalculator.resisttocolors.ResistToColorsFragment;
 
 public class ResistorCalculatorFragment extends Fragment {
@@ -34,13 +35,9 @@ public class ResistorCalculatorFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.example_menu, menu);
-        menu.findItem(R.id.settings_about).setVisible(false);
-        menu.findItem(R.id.settings_history).setVisible(false);
-        menu.findItem(R.id.settings_settings).setVisible(false);
         menu.findItem(R.id.settings_w_output_power).setVisible(false);
         menu.findItem(R.id.settings_variable_output_power).setVisible(false);
         menu.findItem(R.id.settings_color_to_resist).setVisible(false);
-
         menu.findItem(R.id.settings_resist_to_color).setVisible(true);
 
         super.onCreateOptionsMenu(menu, inflater);
@@ -51,6 +48,9 @@ public class ResistorCalculatorFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.settings_resist_to_color:
                 FragmentHelper.getInstance().switchFragments(new ResistToColorsFragment(), this);
+                return true;
+            case R.id.settings_resistance_calculator:
+                FragmentHelper.getInstance().switchFragments(new ResistanceCalculatorFragment(), this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

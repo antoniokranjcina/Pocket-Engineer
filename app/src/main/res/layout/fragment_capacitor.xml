@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/serial-capacitor" />
+        app:srcCompat="@drawable/serial_capacitor" />
 
     <ImageView
         android:id="@+id/capacitor_parallel_connection"
@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/parallel-capacitor" />
+        app:srcCompat="@drawable/parallel_capacitor" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
