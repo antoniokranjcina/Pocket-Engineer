@@ -1,4 +1,4 @@
-package com.tvz.zavrsnirad.dbcalculator;
+package com.tvz.zavrsnirad.dbcalculator.fixedoutput;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.tvz.zavrsnirad.FragmentHelper;
 import com.tvz.zavrsnirad.R;
+import com.tvz.zavrsnirad.dbcalculator.variabloutput.VariableOutputPower;
 
 public class DecibelCalculatorFragment extends Fragment {
     private static final String TAG = "DecibelCalculatorFragme";

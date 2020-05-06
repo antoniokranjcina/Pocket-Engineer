@@ -10,8 +10,7 @@ import androidx.fragment.app.Fragment;
 import com.tvz.zavrsnirad.R;
 
 final class Calculator {
-    private Calculator() {
-    }
+    private Calculator() { }
 
     static void calculateAngle(final View rootView, final Fragment fragment) {
         Button btnConvertDegree = rootView.findViewById(R.id.degreeButton);
@@ -70,7 +69,7 @@ final class Calculator {
     }
 
     private static void calculateAngleDegree(double degree, EditText editTextRadian, EditText editTextGradient) {
-        double decimalPlaces = 100000;
+        double decimalPlaces = 100_000;
 
         double radian = Math.round((degree * (Math.PI / 180)) * decimalPlaces) / decimalPlaces;
         double gradient = Math.round((degree * 1.1111111111111) * decimalPlaces) / decimalPlaces;
@@ -80,7 +79,7 @@ final class Calculator {
     }
 
     private static void calculateAngleRadian(double radian, EditText editTextDegree, EditText editTextGradient) {
-        double decimalPlaces = 100000;
+        double decimalPlaces = 100_000;
 
         double degree = Math.round((radian * (180 / Math.PI) * decimalPlaces)) / decimalPlaces;
         double gradient = Math.round((radian * 63.661977236758) * decimalPlaces) / decimalPlaces;
@@ -90,7 +89,7 @@ final class Calculator {
     }
 
     private static void calculateAngleGradient(double gradient, EditText editTextDegree, EditText editTextRadian) {
-        double decimalPlaces = 100000;
+        double decimalPlaces = 100_000;
 
         double degree = Math.round((gradient * 0.9) * decimalPlaces) / decimalPlaces;
         double radian = Math.round((gradient * 0.015707963267949) * decimalPlaces) / decimalPlaces;

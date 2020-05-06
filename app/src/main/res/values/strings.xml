@@ -89,6 +89,8 @@
         <item>kΩ</item>
         <item>MΩ</item>
     </string-array>
+    <string name="r1">R1</string>
+    <string name="r2">R2</string>
 
     <string name="enter_number_to_convert">Input Number to Convert</string>
     <string name="from">From base: </string>

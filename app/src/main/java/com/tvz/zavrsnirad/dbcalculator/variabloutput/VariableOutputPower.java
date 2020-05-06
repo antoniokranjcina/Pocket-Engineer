@@ -1,4 +1,4 @@
-package com.tvz.zavrsnirad.dbcalculator;
+package com.tvz.zavrsnirad.dbcalculator.variabloutput;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

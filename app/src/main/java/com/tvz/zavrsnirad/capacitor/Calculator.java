@@ -11,9 +11,11 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.tvz.zavrsnirad.NumberFormatter;
 import com.tvz.zavrsnirad.R;
 
 final class Calculator {
+
     static void calculate(final View rootView, final Fragment fragment, final Spinner spinnerCapacitor1, final Spinner spinnerCapacitor2) {
         final EditText capacitor1InputEditText = rootView.findViewById(R.id.capacitor1_input_editText);
         final EditText capacitor2InputEditText = rootView.findViewById(R.id.capacitor2_input_editText);
@@ -96,14 +98,15 @@ final class Calculator {
                 formula = c1 + c2;
             }
 
+            String str = NumberFormatter.format(formula) + "F";
 
-            result.setText(String.valueOf(formula));
+            result.setText(str);
         } catch (NumberFormatException e) {
             Toast.makeText(fragment.getActivity(), "You cannot leave C1 or C2 empty.", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private static void  reset(TextView result, EditText capacitor1InputEditText, EditText capacitor2InputEditText) {
+    private static void reset(TextView result, EditText capacitor1InputEditText, EditText capacitor2InputEditText) {
         result.setText("");
         capacitor1InputEditText.setText("");
         capacitor2InputEditText.setText("");
