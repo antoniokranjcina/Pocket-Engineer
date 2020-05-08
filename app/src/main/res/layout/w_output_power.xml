@@ -11,12 +11,10 @@
         android:id="@+id/watsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:text="@string/wattsText"
         android:textColor="#000000"
         app:layout_constraintBaseline_toBaselineOf="@+id/wattsEditText"
-        app:layout_constraintEnd_toStartOf="@+id/wattsEditText" />
+        app:layout_constraintStart_toStartOf="@+id/milliWatsText" />
 
     <TextView
         android:id="@+id/milliWatsText"
@@ -25,7 +23,7 @@
         android:text="@string/milli_watts_ext"
         android:textColor="#000000"
         app:layout_constraintBaseline_toBaselineOf="@+id/milliWattsEditText"
-        app:layout_constraintEnd_toEndOf="@+id/watsText" />
+        app:layout_constraintStart_toStartOf="@+id/dbText" />
 
     <TextView
         android:id="@+id/dbText"
@@ -34,30 +32,30 @@
         android:text="@string/db_text"
         android:textColor="#000000"
         app:layout_constraintBaseline_toBaselineOf="@+id/dbEditText"
-        app:layout_constraintEnd_toEndOf="@+id/milliWatsText" />
+        app:layout_constraintStart_toStartOf="@+id/dBmText" />
 
     <TextView
         android:id="@+id/dBmText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:text="@string/dbm_text"
         android:textColor="#000000"
         app:layout_constraintBaseline_toBaselineOf="@+id/dbmEditText"
-        app:layout_constraintEnd_toEndOf="@+id/dbText" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/wattsEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/watts_hint"
         android:inputType="numberSigned|numberDecimal"
         android:textSize="15sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/wButton"
-        app:layout_constraintEnd_toStartOf="@+id/wButton" />
+        app:layout_constraintStart_toStartOf="@+id/milliWattsEditText" />
 
     <EditText
         android:id="@+id/milliWattsEditText"
@@ -69,7 +67,7 @@
         android:inputType="numberSigned|numberDecimal"
         android:textSize="15sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/mwButton"
-        app:layout_constraintEnd_toEndOf="@+id/wattsEditText" />
+        app:layout_constraintStart_toStartOf="@+id/dbEditText" />
 
     <EditText
         android:id="@+id/dbEditText"
@@ -81,30 +79,32 @@
         android:inputType="numberSigned|numberDecimal"
         android:textSize="15sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/dbButton"
-        app:layout_constraintEnd_toEndOf="@+id/milliWattsEditText" />
+        app:layout_constraintStart_toStartOf="@+id/dbmEditText" />
 
     <EditText
         android:id="@+id/dbmEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/dbm_hint"
         android:inputType="numberSigned|numberDecimal"
         android:textSize="15sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/dbmButton"
-        app:layout_constraintEnd_toEndOf="@+id/dbEditText" />
+        app:layout_constraintStart_toEndOf="@+id/dBmText" />
 
     <Button
         android:id="@+id/wButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:text="@string/button_convert"
         android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/wattsEditText"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -114,7 +114,7 @@
         android:layout_marginTop="32dp"
         android:text="@string/button_convert"
         android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="@+id/wButton"
+        app:layout_constraintStart_toStartOf="@+id/wButton"
         app:layout_constraintTop_toBottomOf="@+id/wButton" />
 
     <Button
@@ -124,7 +124,7 @@
         android:layout_marginTop="32dp"
         android:text="@string/button_convert"
         android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="@+id/mwButton"
+        app:layout_constraintStart_toStartOf="@+id/mwButton"
         app:layout_constraintTop_toBottomOf="@+id/mwButton" />
 
     <Button
@@ -134,7 +134,7 @@
         android:layout_marginTop="32dp"
         android:text="@string/button_convert"
         android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="@+id/dbButton"
+        app:layout_constraintStart_toStartOf="@+id/dbButton"
         app:layout_constraintTop_toBottomOf="@+id/dbButton" />
 
     <Button
@@ -144,7 +144,7 @@
         android:layout_marginTop="32dp"
         android:text="@string/button_reset"
         android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="@+id/dbmButton"
+        app:layout_constraintStart_toStartOf="@+id/dbmButton"
         app:layout_constraintTop_toBottomOf="@+id/dbmButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

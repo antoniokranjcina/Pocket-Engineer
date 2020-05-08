@@ -61,6 +61,7 @@
         android:ems="10"
         android:hint="@string/capacitor_1"
         android:inputType="numberDecimal"
+        android:maxLength="10"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/radioGroup"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
@@ -84,6 +85,7 @@
         android:ems="10"
         android:hint="@string/capacitor_2"
         android:inputType="numberDecimal"
+        android:maxLength="10"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/capacitor1_input_editText"
         app:layout_constraintStart_toStartOf="@+id/capacitor1_input_editText"

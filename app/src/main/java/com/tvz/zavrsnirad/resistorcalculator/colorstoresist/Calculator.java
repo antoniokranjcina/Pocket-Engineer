@@ -95,7 +95,7 @@ final class Calculator {
                 resistResult = (rbFirstDigit * 10 + rbSecondDigit) * rbMultiplier;
                 String resist;
                 if (resistResult - (int) resistResult == 0) {
-                    String resistLong = NumberFormatter.format((long) resistResult);
+                    String resistLong = NumberFormatter.formatWithUnit((long) resistResult);
                     resist = resistLong + "" + ohmSign + " " + rbTolerance;
                 } else {
                     resistResult = (double) Math.round(resistResult * 100) / 100;

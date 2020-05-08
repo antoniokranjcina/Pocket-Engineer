@@ -60,6 +60,7 @@
         android:ems="10"
         android:hint="@string/r1"
         android:inputType="numberDecimal"
+        android:maxLength="10"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/radioGroupResistors"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupResistors" />
@@ -83,6 +84,7 @@
         android:ems="10"
         android:hint="@string/r2"
         android:inputType="numberDecimal"
+        android:maxLength="10"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/resistor1_input_editText"
         app:layout_constraintStart_toStartOf="@+id/resistor1_input_editText"

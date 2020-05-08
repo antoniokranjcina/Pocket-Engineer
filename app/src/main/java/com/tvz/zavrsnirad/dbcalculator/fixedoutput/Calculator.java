@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.tvz.zavrsnirad.NumberFormatter;
 import com.tvz.zavrsnirad.R;
 
 final class Calculator {
@@ -79,50 +80,43 @@ final class Calculator {
     }
 
     private static void calculatePowerWatts(double watts, EditText editTextMilliWatts, EditText editTextDb, EditText editTextDbm) {
-        double decimalPlaces = 100_000;
+        double milliWats = 1000 * watts;
+        double db = 10 * Math.log10(watts);
+        double dbm = 10 * Math.log10(watts / 0.001);
 
-        double milliWats = Math.round(1000 * watts * decimalPlaces) / decimalPlaces;
-        double db = Math.round(10 * Math.log10(watts) * decimalPlaces) / decimalPlaces;
-        double dbm = Math.round(10 * Math.log10(watts / 0.001) * decimalPlaces) / decimalPlaces;
-
-        editTextMilliWatts.setText(String.valueOf(milliWats));
-        editTextDb.setText(String.valueOf(db));
-        editTextDbm.setText(String.valueOf(dbm));
+        editTextMilliWatts.setText(NumberFormatter.formatWithoutUnit(milliWats));
+        editTextDb.setText(NumberFormatter.formatWithoutUnit(db));
+        editTextDbm.setText(NumberFormatter.formatWithoutUnit(dbm));
     }
 
     private static void calculatePowerMilliWatts(double milliWatts, EditText editTextWatts, EditText editTextDb, EditText editTextDbm) {
-        double decimalPlaces = 100_000;
+        double watts = milliWatts / 1000;
+        double db = 10 * Math.log10(watts);
+        double dbm = 10 * Math.log10(watts / 0.001);
 
-        double watts = Math.round(milliWatts / 1000 * decimalPlaces) / decimalPlaces;
-        double db = Math.round(10 * Math.log10(watts) * decimalPlaces) / decimalPlaces;
-        double dbm = Math.round(10 * Math.log10(watts / 0.001) * decimalPlaces) / decimalPlaces;
-
-        editTextWatts.setText(String.valueOf(watts));
-        editTextDb.setText(String.valueOf(db));
-        editTextDbm.setText(String.valueOf(dbm));
+        editTextWatts.setText(NumberFormatter.formatWithoutUnit(watts));
+        editTextDb.setText(NumberFormatter.formatWithoutUnit(db));
+        editTextDbm.setText(NumberFormatter.formatWithoutUnit(dbm));
     }
 
     private static void calculatePowerDb(double db, EditText editTextWatts, EditText editTextMilliWatts, EditText editTextDbm) {
-        double decimalPlaces = 100_000;
+        double watts = Math.pow(10, db / 10);
+        double dbm = 10 * Math.log10(watts / 0.001);
+        double milliWats = 1000 * watts;
 
-        double watts = Math.round(Math.pow(10, db / 10) * decimalPlaces) / decimalPlaces;
-        double dbm = Math.round(10 * Math.log10(watts / 0.001) * decimalPlaces) / decimalPlaces;
-        double milliWats = Math.round(1000 * watts * decimalPlaces) / decimalPlaces;
-
-        editTextWatts.setText(String.valueOf(watts));
-        editTextMilliWatts.setText(String.valueOf(milliWats));
-        editTextDbm.setText(String.valueOf(dbm));
+        editTextWatts.setText(NumberFormatter.formatWithoutUnit(watts));
+        editTextMilliWatts.setText(NumberFormatter.formatWithoutUnit(milliWats));
+        editTextDbm.setText(NumberFormatter.formatWithoutUnit(dbm));
     }
 
     private static void calculatePowerDbm(double dbm, EditText editTextWatts, EditText editTextMilliWatts, EditText editTextDb) {
-        double decimalPlaces = 100_000;
 
-        double milliWats = Math.round(Math.pow(10, dbm / 10) * decimalPlaces) / decimalPlaces;
-        double watts = Math.round(milliWats * 0.001 * decimalPlaces) / decimalPlaces;
-        double db = Math.round(10 * Math.log10(watts) * decimalPlaces) / decimalPlaces;
+        double milliWats = Math.pow(10, dbm / 10);
+        double watts = milliWats * 0.001;
+        double db = 10 * Math.log10(watts);
 
-        editTextMilliWatts.setText(String.valueOf(milliWats));
-        editTextDb.setText(String.valueOf(db));
-        editTextWatts.setText(String.valueOf(watts));
+        editTextMilliWatts.setText(NumberFormatter.formatWithoutUnit(milliWats));
+        editTextDb.setText(NumberFormatter.formatWithoutUnit(db));
+        editTextWatts.setText(NumberFormatter.formatWithoutUnit(watts));
     }
 }

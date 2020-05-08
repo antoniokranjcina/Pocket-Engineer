@@ -94,7 +94,7 @@ final class Calculator {
                 formula = (r1 * r2) / (r1 + r2);
             }
 
-            String str = NumberFormatter.format(formula) + "Ω";
+            String str = NumberFormatter.formatWithUnit(formula) + "Ω";
 
             result.setText(str);
         } catch (NumberFormatException e) {

@@ -26,9 +26,9 @@ public class NumberFormatter {
      * @param value number to turn
      * @return turned number
      */
-    public static String format(long value) {
-        if (value == Long.MIN_VALUE) return format(Long.MIN_VALUE + 1);
-        if (value < 0) return "-" + format(-value);
+    public static String formatWithUnit(long value) {
+        if (value == Long.MIN_VALUE) return formatWithUnit(Long.MIN_VALUE + 1);
+        if (value < 0) return "-" + formatWithUnit(-value);
         if (value < 1000) return Long.toString(value); //deal with easy case
 
         Map.Entry<Long, String> e = suffixes.floorEntry(value);
@@ -45,23 +45,16 @@ public class NumberFormatter {
      * @param number number to format
      * @return formatted number
      */
-    public static String format(double number) {
+    public static String formatWithUnit(double number) {
         NumberFormat formatter = new DecimalFormat("0.###############E0");
         String string = formatter.format(number);
         string = string.replace(",", ".");
 
-        int exp = 0;
-        double num = 0;
         String siSystemUnit = "";
         int wantedExp = 0;
 
-        for (int i = 0; i < string.length(); i++) {
-            if (string.charAt(i) == 'E') {
-                num = Double.parseDouble(string.substring(0, i));
-                exp = Integer.parseInt(string.substring(i + 1));
-                break;
-            }
-        }
+        double num = parseGivenString(string)[0];
+        int exp = (int) parseGivenString(string)[1];
 
         if(exp > 0) {
             if(exp <= 2) {
@@ -128,5 +121,40 @@ public class NumberFormatter {
         }
 
         return (num + siSystemUnit).replace(".", ",");
+    }
+
+    public static String formatWithoutUnit(double number) {
+        NumberFormat formatter = new DecimalFormat("0.###############E0");
+        String string = formatter.format(number);
+        string = string.replace(",", ".");
+
+        String multiplySignAndPotency = "×10 ";
+        double num = parseGivenString(string)[0];
+        int exp = (int) parseGivenString(string)[1];
+
+        if(exp > 6) {
+            return (num + multiplySignAndPotency + exp).replace(".", ",");
+        } else {
+            if (number != Double.POSITIVE_INFINITY) {
+                return String.valueOf(Math.round(number * 100_000) / 100_000.0).replace(".", ",");
+            }
+            return String.valueOf(number).replace(".", ",");
+        }
+
+    }
+
+    private static double[] parseGivenString(String string) {
+        double num = 0;
+        int exp = 0;
+
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == 'E') {
+                num = Math.round(Double.parseDouble(string.substring(0, i)) * 100_000) / 100_000.0;
+                exp = Integer.parseInt(string.substring(i + 1));
+                break;
+            }
+        }
+
+        return new double[] { num, exp };
     }
 }

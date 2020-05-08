@@ -98,7 +98,7 @@ final class Calculator {
                 formula = c1 + c2;
             }
 
-            String str = NumberFormatter.format(formula) + "F";
+            String str = NumberFormatter.formatWithUnit(formula) + "F";
 
             result.setText(str);
         } catch (NumberFormatException e) {
