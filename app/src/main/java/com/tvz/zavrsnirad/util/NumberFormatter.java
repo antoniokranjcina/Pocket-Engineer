@@ -10,10 +10,11 @@ import java.util.TreeMap;
 public class NumberFormatter {
     private static NumberFormatter instance;
 
-    private NumberFormatter() {}
+    private NumberFormatter() {
+    }
 
     public static NumberFormatter getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new NumberFormatter();
         }
         return instance;
@@ -52,6 +53,7 @@ public class NumberFormatter {
 
     /**
      * Method which turns double value into easier for reading
+     *
      * @param number number to format
      * @return formatted number
      */
@@ -66,8 +68,8 @@ public class NumberFormatter {
         double num = parseGivenString(string)[0];
         int exp = (int) parseGivenString(string)[1];
 
-        if(exp > 0) {
-            if(exp <= 2) {
+        if (exp > 0) {
+            if (exp <= 2) {
                 wantedExp = exp;
                 siSystemUnit = "";
             } else if (exp <= 5) {
@@ -85,40 +87,40 @@ public class NumberFormatter {
             } else if (exp <= 17) {
                 wantedExp = exp - 15;
                 siSystemUnit = "P";
-            } else if(exp <= 20) {
+            } else if (exp <= 20) {
                 wantedExp = exp - 18;
                 siSystemUnit = "E";
-            } else if(exp <= 23) {
+            } else if (exp <= 23) {
                 wantedExp = exp - 21;
                 siSystemUnit = "Z";
-            } else if(exp <= 26) {
+            } else if (exp <= 26) {
                 wantedExp = exp - 24;
                 siSystemUnit = "Y";
             }
-        } else if(exp < 0) {
+        } else if (exp < 0) {
             exp *= -1;
-            if(exp >= 1 && exp <= 3) {
+            if (exp >= 1 && exp <= 3) {
                 wantedExp = 3 - exp;
                 siSystemUnit = "m";
             } else if (exp >= 4 && exp <= 6) {
                 wantedExp = 6 - exp;
                 siSystemUnit = "μ";
-            } else if(exp >= 7 && exp <= 9) {
+            } else if (exp >= 7 && exp <= 9) {
                 wantedExp = 9 - exp;
                 siSystemUnit = "n";
-            } else if(exp >= 10 && exp <= 12) {
+            } else if (exp >= 10 && exp <= 12) {
                 wantedExp = 12 - exp;
                 siSystemUnit = "p";
-            } else if(exp >= 13 && exp <= 15) {
+            } else if (exp >= 13 && exp <= 15) {
                 wantedExp = 15 - exp;
                 siSystemUnit = "f";
-            } else if(exp >= 16 && exp <= 18) {
+            } else if (exp >= 16 && exp <= 18) {
                 wantedExp = 18 - exp;
                 siSystemUnit = "a";
-            } else if(exp >= 19 && exp <= 21) {
+            } else if (exp >= 19 && exp <= 21) {
                 wantedExp = 21 - exp;
                 siSystemUnit = "z";
-            } else if(exp >= 22 && exp <= 24) {
+            } else if (exp >= 22 && exp <= 24) {
                 wantedExp = 24 - exp;
                 siSystemUnit = "y";
             }
@@ -126,8 +128,8 @@ public class NumberFormatter {
         num *= Math.pow(10, wantedExp);
         num = Math.round(num * 100_000) / 100_000.0;
 
-        if(num == (int)num) {
-            return (int)num + siSystemUnit;
+        if (num == (int) num) {
+            return (int) num + siSystemUnit;
         }
 
         return (num + siSystemUnit).replace(".", ",");
@@ -145,7 +147,7 @@ public class NumberFormatter {
         double exp = Math.log10(Math.abs(value));
 
         if (exp <= 6) {
-            if(value == (int) value) {
+            if (value == (int) value) {
                 return String.valueOf((int) value);
             }
             return String.valueOf(Math.round(value * 100_000) / 100_000.0).replace(".", ",");
@@ -186,6 +188,43 @@ public class NumberFormatter {
         return s.toString().replace(".", ",");
     }
 
+    public String convertNumberToLittle(int number) {
+        StringBuilder s = new StringBuilder();
+        switch (number) {
+            case 0:
+                s.append('\u2080');
+                break;
+            case 1:
+                s.append('\u2081');
+                break;
+            case 2:
+                s.append('\u2082');
+                break;
+            case 3:
+                s.append('\u2083');
+                break;
+            case 4:
+                s.append('\u2084');
+                break;
+            case 5:
+                s.append('\u2085');
+                break;
+            case 6:
+                s.append('\u2086');
+                break;
+            case 7:
+                s.append('\u2087');
+                break;
+            case 8:
+                s.append('\u2088');
+                break;
+            case 9:
+                s.append('\u2089');
+                break;
+        }
+        return s.toString();
+    }
+
     private double[] parseGivenString(String string) {
         double num = 0;
         int exp = 0;
@@ -198,6 +237,6 @@ public class NumberFormatter {
             }
         }
 
-        return new double[] { num, exp };
+        return new double[]{num, exp};
     }
 }

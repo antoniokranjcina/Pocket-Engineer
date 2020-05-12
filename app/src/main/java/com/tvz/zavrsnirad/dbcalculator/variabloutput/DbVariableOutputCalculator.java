@@ -23,16 +23,6 @@ final class DbVariableOutputCalculator implements Calculator {
         Button btnConvertDbm = rootView.findViewById(R.id.dbmButton);
         Button btnReset = rootView.findViewById(R.id.resetPowerButton);
 
-        final Spinner spinner = rootView.findViewById(R.id.spinner);
-
-        ArrayAdapter<String> adapter;
-        if(fragment.getActivity() != null) {
-            adapter = new ArrayAdapter<>(fragment.getActivity(),
-                    android.R.layout.simple_list_item_1,
-                    fragment.getResources().getStringArray(R.array.spinner_items));
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinner.setAdapter(adapter);
-        }
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -42,6 +32,17 @@ final class DbVariableOutputCalculator implements Calculator {
                 EditText editTextDb = rootView.findViewById(R.id.dbEditText);
                 EditText editTextDbm = rootView.findViewById(R.id.dbmEditText);
                 EditText editTextOutputPower = rootView.findViewById(R.id.outputPower);
+
+                Spinner spinner = rootView.findViewById(R.id.spinner);
+
+                ArrayAdapter<String> adapter;
+                if(fragment.getActivity() != null) {
+                    adapter = new ArrayAdapter<>(fragment.getActivity(),
+                            android.R.layout.simple_list_item_1,
+                            fragment.getResources().getStringArray(R.array.spinner_items));
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinner.setAdapter(adapter);
+                }
 
                 String spinnerValue = spinner.getSelectedItem().toString();
 

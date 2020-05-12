@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.tvz.zavrsnirad.Calculator;
 import com.tvz.zavrsnirad.R;
+import com.tvz.zavrsnirad.util.NumberFormatter;
 
 final class NumberSystemCalculator implements Calculator {
 
@@ -100,6 +101,7 @@ final class NumberSystemCalculator implements Calculator {
 
     private static void convertHighToLow(int fromBase, int inBase, int number, TextView result) {
         StringBuilder resultText = new StringBuilder();
+        int num = number;
 
         if (fromBase != 10 && fromBase != 16) {
             number = convertNumberToDecimal(number, fromBase);
@@ -113,10 +115,20 @@ final class NumberSystemCalculator implements Calculator {
         }
 
         resultText.reverse();
-        result.setText(resultText.toString());
+        String resultString = num
+                + "₍"
+                + NumberFormatter.getInstance().convertNumberToLittle(fromBase)
+                + "₎"
+                + " = "
+                + resultText
+                + "₍"
+                + NumberFormatter.getInstance().convertNumberToLittle(inBase)
+                + "₎";
+        result.setText(resultString);
     }
 
     private static void convertLowToHigh(int fromBase, int inBase, int number, TextView result) {
+        int num = number;
         number = convertNumberToDecimal(number, fromBase);
         StringBuilder resultText = new StringBuilder();
 
@@ -132,7 +144,16 @@ final class NumberSystemCalculator implements Calculator {
             resultText.append(number);
         }
 
-        result.setText(resultText.toString());
+        String resultString = num
+                + "₍"
+                + NumberFormatter.getInstance().convertNumberToLittle(fromBase)
+                + "₎"
+                + " = "
+                + resultText
+                + "₍"
+                + NumberFormatter.getInstance().convertNumberToLittle(inBase)
+                + "₎";
+        result.setText(resultString);
     }
 
     private static int convertNumberToDecimal(int number, int base) {
