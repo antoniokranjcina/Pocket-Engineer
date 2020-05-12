@@ -1,6 +1,7 @@
 package com.tvz.zavrsnirad.resistorcalculator.resistancecalculator;
 
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -11,17 +12,39 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.tvz.zavrsnirad.NumberFormatter;
+import com.tvz.zavrsnirad.Calculator;
+import com.tvz.zavrsnirad.util.NumberFormatter;
 import com.tvz.zavrsnirad.R;
 
-final class Calculator {
-    static void calculate(final View rootView, final Fragment fragment, final Spinner spinnerCapacitor1, final Spinner spinnerCapacitor2) {
+final class ResistanceCalculator implements Calculator {
+
+    @Override
+    public void calculate(final View rootView, final Fragment fragment) {
         final EditText resistor1InputEditText = rootView.findViewById(R.id.resistor1_input_editText);
         final EditText resistor2InputEditText = rootView.findViewById(R.id.resistor2_input_editText);
         RadioGroup radioGroup = rootView.findViewById(R.id.radioGroupResistors);
         Button buttonCalculate = rootView.findViewById(R.id.resistor_calculate);
         Button buttonReset = rootView.findViewById(R.id.resistor_reset);
         final TextView result = rootView.findViewById(R.id.resistor_result);
+
+        final Spinner spinnerUnitR1 = rootView.findViewById(R.id.spinner_r1_resistor_units);
+        final Spinner spinnerUnitR2 = rootView.findViewById(R.id.spinner_r2_resistor_units);
+
+        ArrayAdapter<String> adapter;
+        if (fragment.getActivity() != null) {
+            adapter = new ArrayAdapter<>(
+                    fragment.getActivity(),
+                    android.R.layout.simple_list_item_1,
+                    fragment.getResources().getStringArray(R.array.spinner_resistor_values));
+
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinnerUnitR1.setAdapter(adapter);
+            spinnerUnitR1.setSelection(0);
+
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinnerUnitR2.setAdapter(adapter);
+            spinnerUnitR2.setSelection(0);
+        }
 
         final boolean[] serial = {true};
 
@@ -35,7 +58,7 @@ final class Calculator {
         buttonCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                calculateCapacity(serial[0], result, resistor1InputEditText, resistor2InputEditText, spinnerCapacitor1, spinnerCapacitor2, fragment);
+                calculateCapacity(serial[0], result, resistor1InputEditText, resistor2InputEditText, spinnerUnitR1, spinnerUnitR2, fragment);
             }
         });
 
@@ -45,10 +68,9 @@ final class Calculator {
                 reset(result, resistor1InputEditText, resistor2InputEditText);
             }
         });
-
     }
 
-    private static boolean read(View rootView, int id){
+    private boolean read(View rootView, int id) {
         ImageView serialConnectionImageView = rootView.findViewById(R.id.resistor_serial);
         ImageView parallelConnectionImageView = rootView.findViewById(R.id.resistor_parallel);
 
@@ -65,7 +87,7 @@ final class Calculator {
         return false;
     }
 
-    private static void calculateCapacity(boolean serial, TextView result, EditText resistor1InputEditText, EditText resistor2InputEditText, Spinner spinnerR1, Spinner spinnerR2, Fragment fragment) {
+    private void calculateCapacity(boolean serial, TextView result, EditText resistor1InputEditText, EditText resistor2InputEditText, Spinner spinnerR1, Spinner spinnerR2, Fragment fragment) {
         try {
             double r1 = Double.parseDouble(resistor1InputEditText.getText().toString());
             double r2 = Double.parseDouble(resistor2InputEditText.getText().toString());
@@ -94,7 +116,7 @@ final class Calculator {
                 formula = (r1 * r2) / (r1 + r2);
             }
 
-            String str = NumberFormatter.formatWithUnit(formula) + "Ω";
+            String str = NumberFormatter.getInstance().formatWithUnit(formula) + "Ω";
 
             result.setText(str);
         } catch (NumberFormatException e) {
@@ -103,7 +125,7 @@ final class Calculator {
     }
 
 
-    private static void reset(TextView result, EditText capacitor1InputEditText, EditText capacitor2InputEditText) {
+    private void reset(TextView result, EditText capacitor1InputEditText, EditText capacitor2InputEditText) {
         result.setText("");
         capacitor1InputEditText.setText("");
         capacitor2InputEditText.setText("");

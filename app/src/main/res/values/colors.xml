@@ -16,6 +16,7 @@
     <color name="grey">#B6A7A7</color>
     <color name="gold">#FFD700</color>
     <color name="silver">#C0C0C0</color>
+    <color name="selected_rb">#BC000000</color>
 
 
 </resources>

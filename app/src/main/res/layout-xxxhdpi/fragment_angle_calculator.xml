@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/degree_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/degree_text"
+        android:textColor="#000000"
+        app:layout_constraintBaseline_toBaselineOf="@+id/degreeEditText"
+        app:layout_constraintStart_toStartOf="@+id/radian_text" />
+
+    <TextView
+        android:id="@+id/radian_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/radian_text"
+        android:textColor="#000000"
+        app:layout_constraintBaseline_toBaselineOf="@+id/radianEditText"
+        app:layout_constraintStart_toStartOf="@+id/gradient_text" />
+
+    <TextView
+        android:id="@+id/gradient_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/gradient_text"
+        android:textColor="#000000"
+        app:layout_constraintBaseline_toBaselineOf="@+id/gradientEditText"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/degreeEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/degree_hint"
+        android:inputType="numberSigned|numberDecimal"
+        android:maxLength="10"
+        android:textSize="15sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/degreeButton"
+        app:layout_constraintStart_toStartOf="@+id/radianEditText" />
+
+    <EditText
+        android:id="@+id/radianEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/radian_hint"
+        android:inputType="numberSigned|numberDecimal"
+        android:maxLength="10"
+        android:textSize="15sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/radianButton"
+        app:layout_constraintStart_toStartOf="@+id/gradientEditText" />
+
+    <EditText
+        android:id="@+id/gradientEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/gradient_hint"
+        android:inputType="numberSigned|numberDecimal"
+        android:maxLength="10"
+        android:textSize="15sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/gradientButton"
+        app:layout_constraintStart_toEndOf="@+id/gradient_text" />
+
+    <Button
+        android:id="@+id/degreeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/button_convert"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/degreeEditText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/radianButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/button_convert"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/degreeButton"
+        app:layout_constraintTop_toBottomOf="@+id/degreeButton" />
+
+    <Button
+        android:id="@+id/gradientButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/button_convert"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/radianButton"
+        app:layout_constraintTop_toBottomOf="@+id/radianButton" />
+
+    <Button
+        android:id="@+id/resetAngleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/button_reset"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/gradientButton"
+        app:layout_constraintTop_toBottomOf="@+id/gradientButton" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.tvz.zavrsnirad.FragmentHelper;
+import com.tvz.zavrsnirad.util.FragmentHelper;
 import com.tvz.zavrsnirad.R;
 import com.tvz.zavrsnirad.resistorcalculator.resistancecalculator.ResistanceCalculatorFragment;
 import com.tvz.zavrsnirad.resistorcalculator.resisttocolors.ResistToColorsFragment;
@@ -23,11 +23,12 @@ public class ResistorCalculatorFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
+
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         View rootView = inflater.inflate(R.layout.fragment_resistor_calculator, container, false);
 
-        Calculator.calculateColorsToResist(rootView, this);
+        new ColorsToResistCalculator().calculate(rootView, this);
 
         return rootView;
     }

@@ -18,7 +18,7 @@ public class AngleCalculatorFragment extends Fragment {
         setHasOptionsMenu(false);
         View rootView = inflater.inflate(R.layout.fragment_angle_calculator, container, false);
 
-        Calculator.calculateAngle(rootView, this);
+        new AngleCalculator().calculate(rootView, this);
 
         return rootView;
     }

@@ -1,16 +1,21 @@
-package com.tvz.zavrsnirad;
+package com.tvz.zavrsnirad.util;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.tvz.zavrsnirad.R;
+
 public class FragmentHelper{
 
-    private static final FragmentHelper instance = new FragmentHelper();
+    private static FragmentHelper instance;
 
     private FragmentHelper() {}
 
     public static FragmentHelper getInstance() {
+        if(instance == null) {
+            instance = new FragmentHelper();
+        }
         return instance;
     }
 

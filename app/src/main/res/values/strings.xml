@@ -64,16 +64,18 @@
     <string name="_7">7</string>
     <string name="_8">8</string>
     <string name="_9">9</string>
-    <string name="x_1">x 1</string>
-    <string name="x_10">x 10</string>
-    <string name="x_100">x 100</string>
-    <string name="x_1k">x 1k</string>
-    <string name="x_10k">x 10k</string>
-    <string name="x_100k">x 100k</string>
-    <string name="x_1m">x 1M</string>
-    <string name="x_10m">x 10M</string>
-    <string name="x_0_1">x 0.1</string>
-    <string name="x_0_01">x 0.01</string>
+
+    <string name="x_1">10⁰</string>
+    <string name="x_10">10¹</string>
+    <string name="x_100">10²</string>
+    <string name="x_1k">10³</string>
+    <string name="x_10k">10⁴</string>
+    <string name="x_100k">10⁵</string>
+    <string name="x_1m">10⁶</string>
+    <string name="x_10m">10⁷</string>
+    <string name="x_0_1">10⁻¹</string>
+    <string name="x_0_01">10⁻²</string>
+
     <string name="percentage_1">± 1%</string>
     <string name="percentage_2">± 2%</string>
     <string name="percentage_05">± 0.5%</string>

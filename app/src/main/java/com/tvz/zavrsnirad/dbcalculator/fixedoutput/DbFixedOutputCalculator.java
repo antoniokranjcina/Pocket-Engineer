@@ -7,11 +7,14 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.tvz.zavrsnirad.NumberFormatter;
+import com.tvz.zavrsnirad.Calculator;
+import com.tvz.zavrsnirad.util.NumberFormatter;
 import com.tvz.zavrsnirad.R;
 
-final class Calculator {
-    static void calculatePowerDefinedOutput(final View rootView, final Fragment fragment) {
+final class DbFixedOutputCalculator implements Calculator {
+
+    @Override
+    public void calculate(final View rootView, final Fragment fragment) {
         Button btnConvertWatts = rootView.findViewById(R.id.wButton);
         Button btnConvertMilliWatts = rootView.findViewById(R.id.mwButton);
         Button btnConvertDb = rootView.findViewById(R.id.dbButton);
@@ -84,9 +87,9 @@ final class Calculator {
         double db = 10 * Math.log10(watts);
         double dbm = 10 * Math.log10(watts / 0.001);
 
-        editTextMilliWatts.setText(NumberFormatter.formatWithoutUnit(milliWats));
-        editTextDb.setText(NumberFormatter.formatWithoutUnit(db));
-        editTextDbm.setText(NumberFormatter.formatWithoutUnit(dbm));
+        editTextMilliWatts.setText(NumberFormatter.getInstance().formatInScientificNotation(milliWats));
+        editTextDb.setText(NumberFormatter.getInstance().formatInScientificNotation(db));
+        editTextDbm.setText(NumberFormatter.getInstance().formatInScientificNotation(dbm));
     }
 
     private static void calculatePowerMilliWatts(double milliWatts, EditText editTextWatts, EditText editTextDb, EditText editTextDbm) {
@@ -94,9 +97,9 @@ final class Calculator {
         double db = 10 * Math.log10(watts);
         double dbm = 10 * Math.log10(watts / 0.001);
 
-        editTextWatts.setText(NumberFormatter.formatWithoutUnit(watts));
-        editTextDb.setText(NumberFormatter.formatWithoutUnit(db));
-        editTextDbm.setText(NumberFormatter.formatWithoutUnit(dbm));
+        editTextWatts.setText(NumberFormatter.getInstance().formatInScientificNotation(watts));
+        editTextDb.setText(NumberFormatter.getInstance().formatInScientificNotation(db));
+        editTextDbm.setText(NumberFormatter.getInstance().formatInScientificNotation(dbm));
     }
 
     private static void calculatePowerDb(double db, EditText editTextWatts, EditText editTextMilliWatts, EditText editTextDbm) {
@@ -104,9 +107,9 @@ final class Calculator {
         double dbm = 10 * Math.log10(watts / 0.001);
         double milliWats = 1000 * watts;
 
-        editTextWatts.setText(NumberFormatter.formatWithoutUnit(watts));
-        editTextMilliWatts.setText(NumberFormatter.formatWithoutUnit(milliWats));
-        editTextDbm.setText(NumberFormatter.formatWithoutUnit(dbm));
+        editTextWatts.setText(NumberFormatter.getInstance().formatInScientificNotation(watts));
+        editTextMilliWatts.setText(NumberFormatter.getInstance().formatInScientificNotation(milliWats));
+        editTextDbm.setText(NumberFormatter.getInstance().formatInScientificNotation(dbm));
     }
 
     private static void calculatePowerDbm(double dbm, EditText editTextWatts, EditText editTextMilliWatts, EditText editTextDb) {
@@ -115,8 +118,8 @@ final class Calculator {
         double watts = milliWats * 0.001;
         double db = 10 * Math.log10(watts);
 
-        editTextMilliWatts.setText(NumberFormatter.formatWithoutUnit(milliWats));
-        editTextDb.setText(NumberFormatter.formatWithoutUnit(db));
-        editTextWatts.setText(NumberFormatter.formatWithoutUnit(watts));
+        editTextMilliWatts.setText(NumberFormatter.getInstance().formatInScientificNotation(milliWats));
+        editTextDb.setText(NumberFormatter.getInstance().formatInScientificNotation(db));
+        editTextWatts.setText(NumberFormatter.getInstance().formatInScientificNotation(watts));
     }
 }

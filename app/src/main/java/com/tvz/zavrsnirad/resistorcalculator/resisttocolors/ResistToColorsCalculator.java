@@ -1,6 +1,7 @@
 package com.tvz.zavrsnirad.resistorcalculator.resisttocolors;
 
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -9,14 +10,28 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.tvz.zavrsnirad.Calculator;
 import com.tvz.zavrsnirad.R;
 
-final class Calculator {
+final class ResistToColorsCalculator implements Calculator {
 
-    static void calculateResistToColor(final View rootView, final Fragment fragment, final Spinner spinner) {
+    @Override
+    public void calculate(final View rootView, final Fragment fragment) {
         final EditText resistInput = rootView.findViewById(R.id.resist_input_editText);
         Button buttonCalculate = rootView.findViewById(R.id.button_calculate);
         Button buttonReset = rootView.findViewById(R.id.button_reset_colors);
+
+        final Spinner spinner = rootView.findViewById(R.id.spinner_resistor);
+
+        ArrayAdapter<String> adapter;
+        if(fragment.getActivity() != null) {
+            adapter = new ArrayAdapter<>(
+                    fragment.getActivity(),
+                    android.R.layout.simple_list_item_1,
+                    fragment.getResources().getStringArray(R.array.spinner_resistor_values));
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner.setAdapter(adapter);
+        }
 
         buttonCalculate.setOnClickListener(new View.OnClickListener() {
             @Override

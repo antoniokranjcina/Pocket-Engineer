@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 import com.tvz.zavrsnirad.capacitor.CapacitorFragment;
 import com.tvz.zavrsnirad.dbcalculator.fixedoutput.DecibelCalculatorFragment;
-import com.tvz.zavrsnirad.numberingsystemcalculator.NumberingSystemCalculator;
+import com.tvz.zavrsnirad.numberingsystemcalculator.NumberingSystemFragment;
 import com.tvz.zavrsnirad.resistorcalculator.colorstoresist.ResistorCalculatorFragment;
 import com.tvz.zavrsnirad.anglecalculator.AngleCalculatorFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment angleCalculatorFragment = new AngleCalculatorFragment();
         Fragment capacitorFragment = new CapacitorFragment();
         Fragment decibelCalculatorFragment = new DecibelCalculatorFragment();
-        Fragment numberingSystemCalculator = new NumberingSystemCalculator();
+        Fragment numberingSystemCalculator = new NumberingSystemFragment();
         Fragment resistorFragment = new ResistorCalculatorFragment();
 
         fragments.add(angleCalculatorFragment);

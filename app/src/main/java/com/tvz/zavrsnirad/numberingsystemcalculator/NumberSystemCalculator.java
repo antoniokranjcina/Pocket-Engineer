@@ -1,6 +1,7 @@
 package com.tvz.zavrsnirad.numberingsystemcalculator;
 
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -9,15 +10,34 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.tvz.zavrsnirad.Calculator;
 import com.tvz.zavrsnirad.R;
 
+final class NumberSystemCalculator implements Calculator {
 
-final class Calculator {
-    static void calculate(final View rootView, final Fragment fragment, final Spinner spinnerFrom, final Spinner spinnerIn) {
+    @Override
+    public void calculate(final View rootView, final Fragment fragment) {
         Button buttonConvert = rootView.findViewById(R.id.button_convert_number);
         Button buttonReset = rootView.findViewById(R.id.button_num_sys_calc_reset);
         final EditText numberToConvert = rootView.findViewById(R.id.number_to_convert);
         final TextView result = rootView.findViewById(R.id.num_sys_cal_result);
+
+        final Spinner spinnerFrom = rootView.findViewById(R.id.spinner_from_base);
+        final Spinner spinnerIn = rootView.findViewById(R.id.spinner_in_base);
+
+        if (fragment.getActivity() != null) {
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                    fragment.getActivity(),
+                    android.R.layout.simple_list_item_1,
+                    fragment.getResources().getStringArray(R.array.spinner_num_sys_calculator));
+
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinnerFrom.setAdapter(adapter);
+
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinnerIn.setAdapter(adapter);
+            spinnerIn.setSelection(1);
+        }
 
         buttonConvert.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,7 +45,7 @@ final class Calculator {
                 String spinnerFromText = spinnerFrom.getSelectedItem().toString();
                 String spinnerInText = spinnerIn.getSelectedItem().toString();
 
-                if(spinnerFromText.equals(spinnerInText)) {
+                if (spinnerFromText.equals(spinnerInText)) {
                     Toast.makeText(fragment.getActivity(), "From base and In base must be different", Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -55,7 +75,7 @@ final class Calculator {
     private static void convert(int fromBase, int inBase, EditText numberToConvert, TextView result, Fragment fragment) {
         try {
             int number;
-            if(fromBase == 16) {
+            if (fromBase == 16) {
                 number = Integer.parseInt(numberToConvert.getText().toString(), 16);
                 fromBase = 10;
             } else {
@@ -81,11 +101,11 @@ final class Calculator {
     private static void convertHighToLow(int fromBase, int inBase, int number, TextView result) {
         StringBuilder resultText = new StringBuilder();
 
-        if(fromBase != 10 && fromBase != 16) {
+        if (fromBase != 10 && fromBase != 16) {
             number = convertNumberToDecimal(number, fromBase);
         }
 
-        if(inBase != 10) {
+        if (inBase != 10) {
             while (number > 0) {
                 resultText.append(number % inBase);
                 number /= inBase;
@@ -96,11 +116,11 @@ final class Calculator {
         result.setText(resultText.toString());
     }
 
-    private  static void convertLowToHigh(int fromBase, int inBase, int number, TextView result) {
+    private static void convertLowToHigh(int fromBase, int inBase, int number, TextView result) {
         number = convertNumberToDecimal(number, fromBase);
         StringBuilder resultText = new StringBuilder();
 
-        if(inBase < 10) {
+        if (inBase < 10) {
             while (number > 0) {
                 resultText.append(number % inBase);
                 number /= inBase;
@@ -132,7 +152,7 @@ final class Calculator {
         while (number > 0) {
             digit = number % 10;
             number /= 10;
-            if(digit >= base) {
+            if (digit >= base) {
                 return false;
             }
         }

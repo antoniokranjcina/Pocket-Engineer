@@ -1,13 +1,23 @@
-package com.tvz.zavrsnirad;
+package com.tvz.zavrsnirad.util;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 
 public class NumberFormatter {
+    private static NumberFormatter instance;
+
     private NumberFormatter() {}
+
+    public static NumberFormatter getInstance() {
+        if(instance == null) {
+            instance = new NumberFormatter();
+        }
+        return instance;
+    }
 
     private static final NavigableMap<Long, String> suffixes = new TreeMap<>();
 
@@ -26,7 +36,7 @@ public class NumberFormatter {
      * @param value number to turn
      * @return turned number
      */
-    public static String formatWithUnit(long value) {
+    public String formatWithUnit(long value) {
         if (value == Long.MIN_VALUE) return formatWithUnit(Long.MIN_VALUE + 1);
         if (value < 0) return "-" + formatWithUnit(-value);
         if (value < 1000) return Long.toString(value); //deal with easy case
@@ -45,7 +55,7 @@ public class NumberFormatter {
      * @param number number to format
      * @return formatted number
      */
-    public static String formatWithUnit(double number) {
+    public String formatWithUnit(double number) {
         NumberFormat formatter = new DecimalFormat("0.###############E0");
         String string = formatter.format(number);
         string = string.replace(",", ".");
@@ -123,27 +133,60 @@ public class NumberFormatter {
         return (num + siSystemUnit).replace(".", ",");
     }
 
-    public static String formatWithoutUnit(double number) {
-        NumberFormat formatter = new DecimalFormat("0.###############E0");
-        String string = formatter.format(number);
-        string = string.replace(",", ".");
+    public String formatInScientificNotation(double value) {
+        NumberFormat baseFormat = NumberFormat.getInstance(Locale.ENGLISH);
+        baseFormat.setMinimumFractionDigits(0);
+        baseFormat.setMaximumFractionDigits(5);
 
-        String multiplySignAndPotency = "×10 ";
-        double num = parseGivenString(string)[0];
-        int exp = (int) parseGivenString(string)[1];
-
-        if(exp > 6) {
-            return (num + multiplySignAndPotency + exp).replace(".", ",");
-        } else {
-            if (number != Double.POSITIVE_INFINITY) {
-                return String.valueOf(Math.round(number * 100_000) / 100_000.0).replace(".", ",");
-            }
-            return String.valueOf(number).replace(".", ",");
+        if (Double.isInfinite(value) || Double.isNaN(value)) {
+            return baseFormat.format(value);
         }
 
+        double exp = Math.log10(Math.abs(value));
+
+        if (exp <= 6) {
+            if(value == (int) value) {
+                return String.valueOf((int) value);
+            }
+            return String.valueOf(Math.round(value * 100_000) / 100_000.0).replace(".", ",");
+        }
+
+        exp = Math.floor(exp);
+
+        double base = value / Math.pow(10, exp);
+
+        String power = String.valueOf((long) exp);
+
+        StringBuilder s = new StringBuilder();
+        s.append(baseFormat.format(base));
+        s.append("\u00d710");
+
+        int len = power.length();
+        for (int i = 0; i < len; i++) {
+            char c = power.charAt(i);
+            switch (c) {
+                case '-':
+                    s.append('\u207b');
+                    break;
+                case '1':
+                    s.append('\u00b9');
+                    break;
+                case '2':
+                    s.append('\u00b2');
+                    break;
+                case '3':
+                    s.append('\u00b3');
+                    break;
+                default:
+                    s.append((char) (0x2070 + (c - '0')));
+                    break;
+            }
+        }
+
+        return s.toString().replace(".", ",");
     }
 
-    private static double[] parseGivenString(String string) {
+    private double[] parseGivenString(String string) {
         double num = 0;
         int exp = 0;
 

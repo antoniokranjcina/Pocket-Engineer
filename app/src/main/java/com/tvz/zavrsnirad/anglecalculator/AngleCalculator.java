@@ -7,14 +7,14 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.tvz.zavrsnirad.Calculator;
 import com.tvz.zavrsnirad.R;
 
-final class Calculator {
+final class AngleCalculator implements Calculator {
     private static double decimalPlaces = 100_000;
 
-    private Calculator() { }
-
-    static void calculateAngle(final View rootView, final Fragment fragment) {
+    @Override
+    public void calculate(final View rootView, final Fragment fragment) {
         Button btnConvertDegree = rootView.findViewById(R.id.degreeButton);
         Button btnConvertRadian = rootView.findViewById(R.id.radianButton);
         Button btnConvertGradient = rootView.findViewById(R.id.gradientButton);
@@ -25,7 +25,7 @@ final class Calculator {
             public void onClick(View view) {
                 EditText editTextDegree = rootView.findViewById(R.id.degreeEditText);
                 EditText editTextRadian = rootView.findViewById(R.id.radianEditText);
-                EditText editTextGradient = rootView.findViewById(R.id.gradianEditText);
+                EditText editTextGradient = rootView.findViewById(R.id.gradientEditText);
 
                 switch (view.getId()) {
                     case R.id.degreeButton:

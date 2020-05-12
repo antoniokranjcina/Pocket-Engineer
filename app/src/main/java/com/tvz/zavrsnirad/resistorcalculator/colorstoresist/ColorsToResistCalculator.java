@@ -8,20 +8,18 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.tvz.zavrsnirad.NumberFormatter;
+import com.tvz.zavrsnirad.util.NumberFormatter;
 import com.tvz.zavrsnirad.R;
 
-final class Calculator {
-    private static final String TAG = "Calculator";
-    private static RadioGroup radioGroupFirstDigit, radioGroupSecondDigit, radioGroupMultiply, radioGroupTolerance;
-    private static RadioButton[] radioButton = new RadioButton[37];
-    private static RadioButton radioButtonFirstDigit, radioButtonSecondDigit, radioButtonMultiplier, radioButtonTolerance;
-    private static TextView color1stDigit, color2ndDigit, colorMultiplier, colorTolerance;
-    private static String[] id;
+final class ColorsToResistCalculator implements com.tvz.zavrsnirad.Calculator {
+    private RadioGroup radioGroupFirstDigit, radioGroupSecondDigit, radioGroupMultiply, radioGroupTolerance;
+    private RadioButton[] radioButton = new RadioButton[37];
+    private RadioButton radioButtonFirstDigit, radioButtonSecondDigit, radioButtonMultiplier, radioButtonTolerance;
+    private TextView color1stDigit, color2ndDigit, colorMultiplier, colorTolerance;
+    private String[] id;
 
-    private Calculator() {}
-
-    static void calculateColorsToResist(final View rootView, final Fragment fragment) {
+    @Override
+    public void calculate(final View rootView, final Fragment fragment) {
 //        radioButton groups
         radioGroupFirstDigit = rootView.findViewById(R.id.radioGroup1stDigit);
         radioGroupSecondDigit = rootView.findViewById(R.id.radioGroup2ndDigit);
@@ -49,7 +47,7 @@ final class Calculator {
         calculateResist(radioButton, resist, rootView);
     }
 
-    private static void calculateResist(final RadioButton[] radioButton, final TextView resistTextView, final View rootView) {
+    private void calculateResist(final RadioButton[] radioButton, final TextView resistTextView, final View rootView) {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,7 +83,6 @@ final class Calculator {
                     }
                     if (getSelectedButtonId(radioGroupSecondDigit) == -1) {
                         radioGroupSecondDigit.check(R.id.btn2ndDigitBlack0);
-
                     }
                     if (getSelectedButtonId(radioGroupMultiply) == -1) {
                         radioGroupMultiply.check(R.id.btnMultiplierBlackX1);
@@ -95,7 +92,7 @@ final class Calculator {
                 resistResult = (rbFirstDigit * 10 + rbSecondDigit) * rbMultiplier;
                 String resist;
                 if (resistResult - (int) resistResult == 0) {
-                    String resistLong = NumberFormatter.formatWithUnit((long) resistResult);
+                    String resistLong = NumberFormatter.getInstance().formatWithUnit((long) resistResult);
                     resist = resistLong + "" + ohmSign + " " + rbTolerance;
                 } else {
                     resistResult = (double) Math.round(resistResult * 100) / 100;
@@ -113,23 +110,26 @@ final class Calculator {
 
     /**
      * Method for setting color on resistor
+     *
      * @param radioButton currently pressed button for reading color
-     * @param textView color for overriding new color
+     * @param textView    color for overriding new color
      */
-    private static void updateColor(RadioButton radioButton, TextView textView) {
+    private void updateColor(RadioButton radioButton, TextView textView) {
         ColorDrawable buttonColor = (ColorDrawable) radioButton.getBackground();
         int colorId = buttonColor.getColor();
+
         textView.setBackgroundColor(colorId);
     }
 
     /**
      * Method for initialization radioButtons
+     *
      * @param radioButton initialized radioButton
      */
-    private static void radioButtonInitialization(RadioButton[] radioButton, Fragment fragment, View rootView) {
+    private void radioButtonInitialization(RadioButton[] radioButton, Fragment fragment, View rootView) {
         for (int i = 0; i < id.length; i++) {
             int temp;
-            if(fragment.getActivity() != null) {
+            if (fragment.getActivity() != null) {
                 temp = fragment.getResources().getIdentifier(id[i], "id", fragment.getActivity().getPackageName());
             } else {
                 return;
@@ -140,41 +140,41 @@ final class Calculator {
 
     /**
      * Method for passing selected id values of radioButton
+     *
      * @param radioGroup radioButton's group
      * @return radioButton's id
      */
-    private static int getSelectedButtonId(RadioGroup radioGroup) {
+    private int getSelectedButtonId(RadioGroup radioGroup) {
         return radioGroup.getCheckedRadioButtonId();
     }
 
     /**
      * Method for reading multiplier value of first two digits
+     *
      * @param radioButton selected radioButton
      * @return number that multiplies first two digits
      */
-    private static double readMultiplier(RadioButton radioButton) {
-        String radioButtonText = radioButton.getText().toString();
-
-        switch (radioButtonText) {
-            case "x 1":
+    private double readMultiplier(RadioButton radioButton) {
+        switch (radioButton.getId()) {
+            case R.id.btnMultiplierBlackX1:
                 return 1.0;
-            case "x 10":
+            case R.id.btnMultiplierBrownX10:
                 return 10.0;
-            case "x 100":
+            case R.id.btnMultiplierRedX100:
                 return 100.0;
-            case "x 1k":
+            case R.id.btnMultiplierOrangeX1k:
                 return 1_000.0;
-            case "x 10k":
+            case R.id.btnMultiplierYellowX10k:
                 return 10_000.0;
-            case "x 100k":
+            case R.id.btnMultiplierGreenX100k:
                 return 100_000.0;
-            case "x 1M":
+            case R.id.btnMultiplierBlueX1M:
                 return 1_000_000.0;
-            case "x 10M":
+            case R.id.btnMultiplierVioletX10M:
                 return 10_000_000.0;
-            case "x 0.1":
+            case R.id.btnMultiplierGold01:
                 return 0.1;
-            case "x 0.01":
+            case R.id.btnMultiplierSilver001:
                 return 0.01;
         }
         return 1;
@@ -201,9 +201,10 @@ final class Calculator {
 
     /**
      * Method for displaying ohm
+     *
      * @return ohn sign value
      */
-    private static char getOhmSign() {
+    private char getOhmSign() {
         return EXTENDED[233 - 0x7F];
     }
 }

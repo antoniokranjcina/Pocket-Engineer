@@ -13,22 +13,22 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.tvz.zavrsnirad.FragmentHelper;
+import com.tvz.zavrsnirad.util.FragmentHelper;
 import com.tvz.zavrsnirad.R;
-import com.tvz.zavrsnirad.dbcalculator.variabloutput.VariableOutputPower;
+import com.tvz.zavrsnirad.dbcalculator.variabloutput.VariableOutputPowerFragment;
 
 public class DecibelCalculatorFragment extends Fragment {
-    private static final String TAG = "DecibelCalculatorFragme";
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
+
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         View rootView = inflater.inflate(R.layout.w_output_power, container, false);
 
-        Calculator.calculatePowerDefinedOutput(rootView, this);
+        new DbFixedOutputCalculator().calculate(rootView, this);
 
         return rootView;
     }
@@ -55,7 +55,7 @@ public class DecibelCalculatorFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings_variable_output_power:
-                FragmentHelper.getInstance().switchFragments(new VariableOutputPower(), this);
+                FragmentHelper.getInstance().switchFragments(new VariableOutputPowerFragment(), this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

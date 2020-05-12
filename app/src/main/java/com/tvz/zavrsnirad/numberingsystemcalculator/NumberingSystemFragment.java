@@ -1,26 +1,27 @@
-package com.tvz.zavrsnirad.resistorcalculator.resisttocolors;
+package com.tvz.zavrsnirad.numberingsystemcalculator;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.tvz.zavrsnirad.R;
 
-public class ResistToColorsFragment extends Fragment {
+public class NumberingSystemFragment extends Fragment {
+    private static final String TAG = "HomeFragment";
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        View rootView = inflater.inflate(R.layout.fragment_numbering_system_calculator, container, false);
 
-        View rootView = inflater.inflate(R.layout.fragment_resist_to_color, container, false);
-
-        new ResistToColorsCalculator().calculate(rootView, this);
+        new NumberSystemCalculator().calculate(rootView, this);
 
         return rootView;
     }

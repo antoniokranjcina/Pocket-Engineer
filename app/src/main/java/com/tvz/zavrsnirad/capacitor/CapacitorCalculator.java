@@ -1,6 +1,7 @@
 package com.tvz.zavrsnirad.capacitor;
 
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -11,14 +12,36 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.tvz.zavrsnirad.NumberFormatter;
+import com.tvz.zavrsnirad.Calculator;
+import com.tvz.zavrsnirad.util.NumberFormatter;
 import com.tvz.zavrsnirad.R;
 
-final class Calculator {
+final class CapacitorCalculator implements Calculator {
 
-    static void calculate(final View rootView, final Fragment fragment, final Spinner spinnerCapacitor1, final Spinner spinnerCapacitor2) {
+    @Override
+    public void calculate(final View rootView, final Fragment fragment) {
         final EditText capacitor1InputEditText = rootView.findViewById(R.id.capacitor1_input_editText);
         final EditText capacitor2InputEditText = rootView.findViewById(R.id.capacitor2_input_editText);
+
+        final Spinner spinnerCapacitor2 = rootView.findViewById(R.id.spinner_c2_capacitor_unit);
+        final Spinner spinnerCapacitor1 = rootView.findViewById(R.id.spinner_c1_capacitor_unit);
+
+        ArrayAdapter adapter;
+        if(fragment.getActivity() != null) {
+            adapter = new ArrayAdapter<>(
+                    fragment.getActivity(),
+                    android.R.layout.simple_list_item_1,
+                    fragment.getResources().getStringArray(R.array.spinner_capacitor_units));
+
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinnerCapacitor1.setAdapter(adapter);
+            spinnerCapacitor1.setSelection(1);
+
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinnerCapacitor2.setAdapter(adapter);
+            spinnerCapacitor2.setSelection(1);
+        }
+
         RadioGroup radioGroup = rootView.findViewById(R.id.radioGroup);
         Button buttonCalculate = rootView.findViewById(R.id.capacitor_calculate);
         Button buttonReset = rootView.findViewById(R.id.capacitor_reset);
@@ -98,7 +121,7 @@ final class Calculator {
                 formula = c1 + c2;
             }
 
-            String str = NumberFormatter.formatWithUnit(formula) + "F";
+            String str = NumberFormatter.getInstance().formatWithUnit(formula) + "F";
 
             result.setText(str);
         } catch (NumberFormatException e) {
