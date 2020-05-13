@@ -184,45 +184,48 @@ public class NumberFormatter {
                     break;
             }
         }
-
         return s.toString().replace(".", ",");
     }
 
     public String convertNumberToLittle(int number) {
         StringBuilder s = new StringBuilder();
-        switch (number) {
-            case 0:
-                s.append('\u2080');
-                break;
-            case 1:
-                s.append('\u2081');
-                break;
-            case 2:
-                s.append('\u2082');
-                break;
-            case 3:
-                s.append('\u2083');
-                break;
-            case 4:
-                s.append('\u2084');
-                break;
-            case 5:
-                s.append('\u2085');
-                break;
-            case 6:
-                s.append('\u2086');
-                break;
-            case 7:
-                s.append('\u2087');
-                break;
-            case 8:
-                s.append('\u2088');
-                break;
-            case 9:
-                s.append('\u2089');
-                break;
+        while (number > 0) {
+            int digit = number % 10;
+            number /= 10;
+            switch (digit) {
+                case 0:
+                    s.append('\u2080');
+                    break;
+                case 1:
+                    s.append('\u2081');
+                    break;
+                case 2:
+                    s.append('\u2082');
+                    break;
+                case 3:
+                    s.append('\u2083');
+                    break;
+                case 4:
+                    s.append('\u2084');
+                    break;
+                case 5:
+                    s.append('\u2085');
+                    break;
+                case 6:
+                    s.append('\u2086');
+                    break;
+                case 7:
+                    s.append('\u2087');
+                    break;
+                case 8:
+                    s.append('\u2088');
+                    break;
+                case 9:
+                    s.append('\u2089');
+                    break;
+            }
         }
-        return s.toString();
+        return s.reverse().toString();
     }
 
     private double[] parseGivenString(String string) {

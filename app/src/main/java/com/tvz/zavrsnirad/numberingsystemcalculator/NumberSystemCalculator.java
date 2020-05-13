@@ -74,6 +74,10 @@ final class NumberSystemCalculator implements Calculator {
     }
 
     private static void convert(int fromBase, int inBase, EditText numberToConvert, TextView result, Fragment fragment) {
+        int[] fromBaseAndNumber = new int[2];
+        fromBaseAndNumber[0] = fromBase;
+        fromBaseAndNumber[1] = Integer.parseInt(numberToConvert.getText().toString());
+
         try {
             int number;
             if (fromBase == 16) {
@@ -85,9 +89,9 @@ final class NumberSystemCalculator implements Calculator {
 
             if (checkNumber(number, fromBase)) {
                 if (fromBase > inBase) {
-                    convertHighToLow(fromBase, inBase, number, result);
+                    convertHighToLow(fromBase, inBase, number, result, fromBaseAndNumber);
                 } else {
-                    convertLowToHigh(fromBase, inBase, number, result);
+                    convertLowToHigh(fromBase, inBase, number, result, fromBaseAndNumber);
                 }
             } else {
                 Toast.makeText(fragment.getActivity(), "Number digits cannot be greater than number's base.", Toast.LENGTH_SHORT).show();
@@ -99,9 +103,10 @@ final class NumberSystemCalculator implements Calculator {
         }
     }
 
-    private static void convertHighToLow(int fromBase, int inBase, int number, TextView result) {
-        StringBuilder resultText = new StringBuilder();
+    private static void convertHighToLow(int fromBase, int inBase, int number, TextView result, int[] fromNumberAndBase) {
         int num = number;
+
+        StringBuilder resultText = new StringBuilder();
 
         if (fromBase != 10 && fromBase != 16) {
             number = convertNumberToDecimal(number, fromBase);
@@ -115,9 +120,9 @@ final class NumberSystemCalculator implements Calculator {
         }
 
         resultText.reverse();
-        String resultString = num
+        String resultString = fromNumberAndBase[1]
                 + "₍"
-                + NumberFormatter.getInstance().convertNumberToLittle(fromBase)
+                + NumberFormatter.getInstance().convertNumberToLittle(fromNumberAndBase[0])
                 + "₎"
                 + " = "
                 + resultText
@@ -127,7 +132,7 @@ final class NumberSystemCalculator implements Calculator {
         result.setText(resultString);
     }
 
-    private static void convertLowToHigh(int fromBase, int inBase, int number, TextView result) {
+    private static void convertLowToHigh(int fromBase, int inBase, int number, TextView result, int[] fromNumberAndBase) {
         int num = number;
         number = convertNumberToDecimal(number, fromBase);
         StringBuilder resultText = new StringBuilder();
@@ -144,9 +149,9 @@ final class NumberSystemCalculator implements Calculator {
             resultText.append(number);
         }
 
-        String resultString = num
+        String resultString = fromNumberAndBase[1]
                 + "₍"
-                + NumberFormatter.getInstance().convertNumberToLittle(fromBase)
+                + NumberFormatter.getInstance().convertNumberToLittle(fromNumberAndBase[0])
                 + "₎"
                 + " = "
                 + resultText
