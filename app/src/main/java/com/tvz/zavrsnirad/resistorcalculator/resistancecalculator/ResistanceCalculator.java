@@ -116,7 +116,7 @@ final class ResistanceCalculator implements Calculator {
                 formula = (r1 * r2) / (r1 + r2);
             }
 
-            String str = NumberFormatter.getInstance().formatWithUnit(formula) + "Ω";
+            String str = "Ruk = " + NumberFormatter.getInstance().formatWithUnit(formula) + "Ω";
 
             result.setText(str);
         } catch (NumberFormatException e) {

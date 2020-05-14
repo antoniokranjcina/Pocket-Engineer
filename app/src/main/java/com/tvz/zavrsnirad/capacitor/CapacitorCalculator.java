@@ -121,7 +121,7 @@ final class CapacitorCalculator implements Calculator {
                 formula = c1 + c2;
             }
 
-            String str = NumberFormatter.getInstance().formatWithUnit(formula) + "F";
+            String str = "Cuk = " + NumberFormatter.getInstance().formatWithUnit(formula) + "F";
 
             result.setText(str);
         } catch (NumberFormatException e) {
