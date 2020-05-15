@@ -74,12 +74,12 @@ final class NumberSystemCalculator implements Calculator {
     }
 
     private static void convert(int fromBase, int inBase, EditText numberToConvert, TextView result, Fragment fragment) {
-        int[] fromBaseAndNumber = new int[2];
-        fromBaseAndNumber[0] = fromBase;
-        fromBaseAndNumber[1] = Integer.parseInt(numberToConvert.getText().toString());
-
         try {
             int number;
+            int[] fromBaseAndNumber = new int[2];
+            fromBaseAndNumber[0] = fromBase;
+            fromBaseAndNumber[1] = Integer.parseInt(numberToConvert.getText().toString());
+
             if (fromBase == 16) {
                 number = Integer.parseInt(numberToConvert.getText().toString(), 16);
                 fromBase = 10;
