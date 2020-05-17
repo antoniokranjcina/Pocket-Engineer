@@ -1,4 +1,4 @@
-package com.tvz.zavrsnirad.resistorcalculator.resistancecalculator;
+package com.tvz.zavrsnirad.dbcalculator.fixedoutput;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,16 +8,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import com.tvz.zavrsnirad.R;
 
-public class ResistanceCalculatorFragment extends Fragment {
+public class FixedOutputPowerFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_resistance_calculator, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_fixed_output_power, container, false);
 
-        new ResistanceCalculator().calculate(rootView, this);
+        new DbFixedOutputCalculator().calculate(rootView, this);
 
         return rootView;
     }

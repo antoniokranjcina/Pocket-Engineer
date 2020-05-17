@@ -7,11 +7,13 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.tvz.zavrsnirad.anglecalculator.AngleFragment;
+import com.tvz.zavrsnirad.capacitor.CapacitorCalculatorFragment;
 import com.tvz.zavrsnirad.capacitor.CapacitorFragment;
-import com.tvz.zavrsnirad.dbcalculator.fixedoutput.DecibelCalculatorFragment;
+import com.tvz.zavrsnirad.dbcalculator.DbCalculator;
+import com.tvz.zavrsnirad.numberingsystemcalculator.NumberingSystemCalculatorFragment;
 import com.tvz.zavrsnirad.numberingsystemcalculator.NumberingSystemFragment;
-import com.tvz.zavrsnirad.resistorcalculator.colorstoresist.ResistorCalculatorFragment;
-import com.tvz.zavrsnirad.anglecalculator.AngleCalculatorFragment;
+import com.tvz.zavrsnirad.resistorcalculator.ResistorFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -42,11 +44,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void buildFragmentsList() {
-        Fragment angleCalculatorFragment = new AngleCalculatorFragment();
+        Fragment angleCalculatorFragment = new AngleFragment();
         Fragment capacitorFragment = new CapacitorFragment();
-        Fragment decibelCalculatorFragment = new DecibelCalculatorFragment();
+        Fragment decibelCalculatorFragment = new DbCalculator();
         Fragment numberingSystemCalculator = new NumberingSystemFragment();
-        Fragment resistorFragment = new ResistorCalculatorFragment();
+        Fragment resistorFragment = new ResistorFragment();
 
         fragments.add(angleCalculatorFragment);
         fragments.add(capacitorFragment);

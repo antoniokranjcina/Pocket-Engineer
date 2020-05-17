@@ -1,4 +1,4 @@
-package com.tvz.zavrsnirad.resistorcalculator.resistancecalculator;
+package com.tvz.zavrsnirad.capacitor;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,14 +11,18 @@ import androidx.fragment.app.Fragment;
 
 import com.tvz.zavrsnirad.R;
 
-public class ResistanceCalculatorFragment extends Fragment {
+public class CapacitorCalculatorFragment extends Fragment {
+    private static final String TAG = "CapacitorFragment";
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_resistance_calculator, container, false);
+        setHasOptionsMenu(false);
+        View rootView =  inflater.inflate(R.layout.fragment_capacitor_calcualtor, container, false);
 
-        new ResistanceCalculator().calculate(rootView, this);
+        new CapacitorCalculator().calculate(rootView, this);
 
         return rootView;
     }
+
 }

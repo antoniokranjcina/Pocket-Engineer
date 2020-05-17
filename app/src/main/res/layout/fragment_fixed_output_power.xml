@@ -4,31 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".dbcalculator.variabloutput.VariableOutputPowerFragment">
-
-    <EditText
-        android:id="@+id/outputPower"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/output_power_hint"
-        android:inputType="numberSigned|numberDecimal"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/spinner_output_power_db"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintStart_toEndOf="@+id/outputPower"
-        app:layout_constraintTop_toTopOf="@+id/outputPower" />
+    tools:context=".dbcalculator.fixedoutput.FixedOutputPowerFragment"
+    tools:layout_editor_absoluteY="81dp">
 
     <TextView
         android:id="@+id/watsText"
@@ -121,14 +98,14 @@
     <Button
         android:id="@+id/wButton"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/button_convert"
         android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/wattsEditText"
-        app:layout_constraintTop_toBottomOf="@+id/outputPower" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/mwButton"
@@ -154,7 +131,7 @@
         android:id="@+id/dbmButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="32dp"
         android:text="@string/button_convert"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="@+id/dbButton"

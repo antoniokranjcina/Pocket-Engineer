@@ -1,4 +1,4 @@
-package com.tvz.zavrsnirad.resistorcalculator.resistancecalculator;
+package com.tvz.zavrsnirad.resistorcalculator.colorstoresist;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,13 +11,13 @@ import androidx.fragment.app.Fragment;
 
 import com.tvz.zavrsnirad.R;
 
-public class ResistanceCalculatorFragment extends Fragment {
+public class ColorsToResistFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_resistance_calculator, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_colors_to_resist, container, false);
 
-        new ResistanceCalculator().calculate(rootView, this);
+        new ColorsToResistCalculator().calculate(rootView, this);
 
         return rootView;
     }

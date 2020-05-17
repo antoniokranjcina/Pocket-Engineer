@@ -6,128 +6,143 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <ImageView
-        android:id="@+id/resistor_parallel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/serial"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/resistors_parallel" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/resistor_serial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/parallel"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/resistors_serial" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <RadioGroup
-        android:id="@+id/radioGroupResistors"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resistor_parallel">
+            <ImageView
+                android:id="@+id/resistor_parallel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:contentDescription="@string/serial"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/resistors_parallel" />
 
-        <RadioButton
-            android:id="@+id/resistor_serial_radioButton"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/serial" />
+            <ImageView
+                android:id="@+id/resistor_serial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:contentDescription="@string/parallel"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/resistors_serial" />
 
-        <RadioButton
-            android:id="@+id/resistor_parallel_radioButton"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="@string/parallel" />
-    </RadioGroup>
+            <RadioGroup
+                android:id="@+id/radioGroupResistors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/resistor_parallel">
 
-    <EditText
-        android:id="@+id/resistor1_input_editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/r1"
-        android:inputType="numberDecimal"
-        android:maxLength="10"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/radioGroupResistors"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroupResistors" />
+                <RadioButton
+                    android:id="@+id/resistor_serial_radioButton"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/serial" />
 
-    <Spinner
-        android:id="@+id/spinner_r1_resistor_units"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/resistor1_input_editText"
-        app:layout_constraintStart_toEndOf="@+id/resistor1_input_editText"
-        app:layout_constraintTop_toTopOf="@+id/resistor1_input_editText" />
+                <RadioButton
+                    android:id="@+id/resistor_parallel_radioButton"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/parallel" />
+            </RadioGroup>
 
-    <EditText
-        android:id="@+id/resistor2_input_editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/r2"
-        android:inputType="numberDecimal"
-        android:maxLength="10"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/resistor1_input_editText"
-        app:layout_constraintStart_toStartOf="@+id/resistor1_input_editText"
-        app:layout_constraintTop_toBottomOf="@+id/resistor1_input_editText" />
+            <EditText
+                android:id="@+id/resistor1_input_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/r1"
+                android:inputType="numberDecimal"
+                android:maxLength="10"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@+id/radioGroupResistors"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroupResistors" />
 
-    <Spinner
-        android:id="@+id/spinner_r2_resistor_units"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/resistor2_input_editText"
-        app:layout_constraintStart_toEndOf="@+id/resistor2_input_editText"
-        app:layout_constraintTop_toTopOf="@+id/resistor2_input_editText" />
+            <Spinner
+                android:id="@+id/spinner_r1_resistor_units"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/resistor1_input_editText"
+                app:layout_constraintStart_toEndOf="@+id/resistor1_input_editText"
+                app:layout_constraintTop_toTopOf="@+id/resistor1_input_editText" />
 
-    <Button
-        android:id="@+id/resistor_calculate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/calculate"
-        app:layout_constraintStart_toStartOf="@+id/resistor2_input_editText"
-        app:layout_constraintTop_toBottomOf="@+id/resistor2_input_editText" />
+            <EditText
+                android:id="@+id/resistor2_input_editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/r2"
+                android:inputType="numberDecimal"
+                android:maxLength="10"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/resistor1_input_editText"
+                app:layout_constraintStart_toStartOf="@+id/resistor1_input_editText"
+                app:layout_constraintTop_toBottomOf="@+id/resistor1_input_editText" />
 
-    <Button
-        android:id="@+id/resistor_reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:text="@string/button_reset"
-        app:layout_constraintBaseline_toBaselineOf="@+id/resistor_calculate"
-        app:layout_constraintStart_toEndOf="@+id/resistor_calculate" />
+            <Spinner
+                android:id="@+id/spinner_r2_resistor_units"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/resistor2_input_editText"
+                app:layout_constraintStart_toEndOf="@+id/resistor2_input_editText"
+                app:layout_constraintTop_toTopOf="@+id/resistor2_input_editText" />
 
-    <TextView
-        android:id="@+id/resistor_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resistor_calculate"
-        tools:text="Result" />
+            <Button
+                android:id="@+id/resistor_calculate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/calculate"
+                app:layout_constraintStart_toStartOf="@+id/resistor2_input_editText"
+                app:layout_constraintTop_toBottomOf="@+id/resistor2_input_editText" />
+
+            <Button
+                android:id="@+id/resistor_reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="@string/button_reset"
+                app:layout_constraintBaseline_toBaselineOf="@+id/resistor_calculate"
+                app:layout_constraintStart_toEndOf="@+id/resistor_calculate" />
+
+            <TextView
+                android:id="@+id/resistor_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/resistor_calculate"
+                tools:text="Result" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
