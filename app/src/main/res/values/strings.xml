@@ -18,7 +18,7 @@
     <string name="settings_menu_resist_to_colors">Resist to Colors</string>
     <string name="settings_menu_resistance_calculator">Resistance Calculator</string>
 
-<!--    db calculator-->
+    <!--    db calculator-->
     <string name="wattsText">W</string>
     <string name="milli_watts_ext">mW</string>
     <string name="db_text">dB</string>
@@ -38,7 +38,7 @@
         <item>dBm</item>
     </string-array>
 
-<!--    angle unit calculator-->
+    <!--    angle unit calculator-->
     <string name="degree_text">Degree</string>
     <string name="radian_text">Radian</string>
     <string name="gradient_text">Gradient</string>
@@ -48,7 +48,7 @@
     <string name="round_hint">Input Decimal Places</string>
 
 
-<!--    resistor calculator-->
+    <!--    resistor calculator-->
     <string name="click_to_the_bottom_buttons">Click to the Bottom Buttons</string>
     <string name="_1st_digit">1st Digit</string>
     <string name="multiplier">Multiplier</string>
@@ -121,8 +121,6 @@
         <item>nF</item>
         <item>pF</item>
     </string-array>
-
-
 
 
 </resources>

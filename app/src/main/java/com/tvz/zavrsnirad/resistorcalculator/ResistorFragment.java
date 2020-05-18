@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -24,8 +27,16 @@ public class ResistorFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.resistor_calculator_fragment, container, false);
 
+        Toolbar toolbar = rootView.findViewById(R.id.toolbar_resistor);
+        if(toolbar != null) {
+            ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Resistor Calculator");
+        }
+
         ViewPager viewPager = rootView.findViewById(R.id.view_pager_resistor_calculator);
         TabLayout tabLayout = rootView.findViewById(R.id.tab_layout_resistor_calculator);
+
+        tabLayout.setTabTextColors(ContextCompat.getColorStateList(getContext(), R.color.white));
 
         ColorsToResistFragment colorsToResistFragment = new ColorsToResistFragment();
         ResistanceCalculatorFragment resistanceCalculatorFragment = new ResistanceCalculatorFragment();
@@ -34,9 +45,9 @@ public class ResistorFragment extends Fragment {
         tabLayout.setupWithViewPager(viewPager);
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager(), 0);
-        viewPagerAdapter.addFragment(colorsToResistFragment, "Colors To Resist");
-        viewPagerAdapter.addFragment(resistanceCalculatorFragment, "Resistance Calculator");
-        viewPagerAdapter.addFragment(resistToColorsFragment, "Resist To Colors");
+        viewPagerAdapter.addFragment(colorsToResistFragment, "Colors to Resist");
+        viewPagerAdapter.addFragment(resistanceCalculatorFragment, "Resistance");
+        viewPagerAdapter.addFragment(resistToColorsFragment, "Resist to Colors");
 
         viewPager.setAdapter(viewPagerAdapter);
 

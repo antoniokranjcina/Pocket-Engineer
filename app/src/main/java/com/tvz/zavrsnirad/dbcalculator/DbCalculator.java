@@ -1,5 +1,6 @@
 package com.tvz.zavrsnirad.dbcalculator;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,9 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -22,8 +26,16 @@ public class DbCalculator extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.db_calculator_fragment, container, false);
 
+        Toolbar toolbar = rootView.findViewById(R.id.toolbar_decibel);
+        if(toolbar != null) {
+            ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Decibel Calculator");
+        }
+
         ViewPager viewPager = rootView.findViewById(R.id.view_pager_db_calculator);
         TabLayout tabLayout = rootView.findViewById(R.id.tab_layout_db_calculator);
+
+        tabLayout.setTabTextColors(ContextCompat.getColorStateList(getContext(), R.color.white));
 
         FixedOutputPowerFragment fixedOutputPowerFragment = new FixedOutputPowerFragment();
         VariableOutputPowerFragment variableOutputPowerFragment = new VariableOutputPowerFragment();

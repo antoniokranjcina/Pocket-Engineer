@@ -11,18 +11,19 @@
         android:title="@string/capacitor_calculator" />
 
     <item
-        android:id="@+id/decibel_calculator"
-        android:icon="@drawable/db_cal"
-        android:title="@string/decibel_calculator" />
-
-    <item
         android:id="@+id/numbering_system_calculator"
         android:icon="@drawable/number_system_cal"
         android:title="@string/numbering_system_calculator" />
 
     <item
+        android:id="@+id/decibel_calculator"
+        android:icon="@drawable/db_cal"
+        android:title="@string/decibel_calculator" />
+
+
+    <item
         android:id="@+id/resistor_calculator"
         android:icon="@drawable/resistor_icon"
-        android:title="@string/resistor_calculator"/>
+        android:title="@string/resistor_calculator" />
 
 </menu>

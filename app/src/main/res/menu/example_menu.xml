@@ -27,4 +27,9 @@
         android:title="@string/settings_menu_resistance_calculator"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/about"
+        android:title="@string/settings_menu_about"
+        app:showAsAction="never"/>
+
 </menu>
