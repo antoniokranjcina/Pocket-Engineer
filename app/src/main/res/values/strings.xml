@@ -84,7 +84,7 @@
     <string name="percentage_005">± 0.05%</string>
     <string name="percentage_5">± 5%</string>
     <string name="percentage_10">± 10%</string>
-    <string name="enter_resist_hint">Input Resist</string>
+    <string name="enter_resist_hint">Input Resist Value</string>
     <string name="calculate">Calculate</string>
     <string-array name="spinner_resistor_values">
         <item>Ω</item>

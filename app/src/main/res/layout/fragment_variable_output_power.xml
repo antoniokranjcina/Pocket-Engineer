@@ -133,8 +133,9 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
+                android:background="@drawable/blue_button"
                 android:text="@string/button_convert"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 app:layout_constraintStart_toEndOf="@+id/wattsEditText"
                 app:layout_constraintTop_toBottomOf="@+id/outputPower" />
 
@@ -143,8 +144,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:background="@drawable/blue_button"
                 android:text="@string/button_convert"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 app:layout_constraintStart_toStartOf="@+id/wButton"
                 app:layout_constraintTop_toBottomOf="@+id/wButton" />
 
@@ -153,8 +155,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:background="@drawable/blue_button"
                 android:text="@string/button_convert"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 app:layout_constraintStart_toStartOf="@+id/mwButton"
                 app:layout_constraintTop_toBottomOf="@+id/mwButton" />
 
@@ -163,8 +166,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
+                android:background="@drawable/blue_button"
                 android:text="@string/button_convert"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 app:layout_constraintStart_toStartOf="@+id/dbButton"
                 app:layout_constraintTop_toBottomOf="@+id/dbButton" />
 
@@ -173,8 +177,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:background="@drawable/red_button"
                 android:text="@string/button_reset"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 app:layout_constraintStart_toStartOf="@+id/dbmButton"
                 app:layout_constraintTop_toBottomOf="@+id/dbmButton" />
 

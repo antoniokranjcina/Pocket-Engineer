@@ -12,7 +12,7 @@
 
     <item
         android:id="@+id/numbering_system_calculator"
-        android:icon="@drawable/number_system_cal"
+        android:icon="@drawable/num_sys_cal"
         android:title="@string/numbering_system_calculator" />
 
     <item

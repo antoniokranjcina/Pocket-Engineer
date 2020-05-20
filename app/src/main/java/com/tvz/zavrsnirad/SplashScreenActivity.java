@@ -18,11 +18,8 @@ public class SplashScreenActivity extends AppCompatActivity {
                 .withFullScreen()
                 .withTargetActivity(MainActivity.class)
                 .withSplashTimeOut(350)
-                .withBackgroundColor(Color.parseColor("#1a1b29"))
-                .withBeforeLogoText("Pocket Engineer")
+                .withBackgroundColor(Color.parseColor("#4BC1FF"))
                 .withLogo(R.mipmap.ic_launcher_round);
-
-        config.getBeforeLogoTextView().setTextColor(Color.WHITE);
 
         View easySplashScreen = config.create();
         setContentView(easySplashScreen);

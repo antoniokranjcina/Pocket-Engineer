@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#4BC1FF</color>
+    <color name="colorPrimaryDark">#4BC1FF</color>
+    <color name="colorAccent">#9CDDFF</color>
+
+    <color name="redButtonColor">#FF5C5C</color>
 
     <color name="white">#ffffffff</color>
     <color name="black">#ff000000</color>
@@ -17,6 +19,5 @@
     <color name="gold">#FFD700</color>
     <color name="silver">#C0C0C0</color>
     <color name="selected_rb">#BC000000</color>
-
 
 </resources>
