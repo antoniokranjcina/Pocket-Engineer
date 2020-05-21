@@ -1,6 +1,7 @@
 package com.tvz.zavrsnirad.dbcalculator;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -20,22 +22,23 @@ import com.tvz.zavrsnirad.dbcalculator.fixedoutput.FixedOutputPowerFragment;
 import com.tvz.zavrsnirad.dbcalculator.variabloutput.VariableOutputPowerFragment;
 import com.tvz.zavrsnirad.util.ViewPagerAdapter;
 
+import java.util.Objects;
+
 public class DbCalculator extends Fragment {
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.db_calculator_fragment, container, false);
 
         Toolbar toolbar = rootView.findViewById(R.id.toolbar_decibel);
-        if(toolbar != null) {
-            ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Decibel Calculator");
-        }
+        ((AppCompatActivity) Objects.requireNonNull(getActivity())).setSupportActionBar(toolbar);
+        Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setTitle("Decibel Calculator");
 
         ViewPager viewPager = rootView.findViewById(R.id.view_pager_db_calculator);
         TabLayout tabLayout = rootView.findViewById(R.id.tab_layout_db_calculator);
 
-        tabLayout.setTabTextColors(ContextCompat.getColorStateList(getContext(), R.color.white));
+        tabLayout.setTabTextColors(ContextCompat.getColorStateList(Objects.requireNonNull(getContext()), R.color.white));
 
         FixedOutputPowerFragment fixedOutputPowerFragment = new FixedOutputPowerFragment();
         VariableOutputPowerFragment variableOutputPowerFragment = new VariableOutputPowerFragment();

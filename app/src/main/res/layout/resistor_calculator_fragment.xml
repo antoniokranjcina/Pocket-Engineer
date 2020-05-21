@@ -6,7 +6,8 @@
     android:orientation="vertical">
 
     <include android:id="@+id/toolbar_resistor"
-        layout="@layout/toolbar" />
+        layout="@layout/toolbar"
+        />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout_resistor_calculator"

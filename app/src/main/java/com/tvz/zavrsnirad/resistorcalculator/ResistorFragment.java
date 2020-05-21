@@ -1,5 +1,6 @@
 package com.tvz.zavrsnirad.resistorcalculator;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -20,23 +22,26 @@ import com.tvz.zavrsnirad.resistorcalculator.resistancecalculator.ResistanceCalc
 import com.tvz.zavrsnirad.resistorcalculator.resisttocolors.ResistToColorsFragment;
 import com.tvz.zavrsnirad.util.ViewPagerAdapter;
 
+import java.util.Objects;
+
 public class ResistorFragment extends Fragment {
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.resistor_calculator_fragment, container, false);
 
         Toolbar toolbar = rootView.findViewById(R.id.toolbar_resistor);
-        if(toolbar != null) {
-            ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Resistor Calculator");
-        }
+
+        ((AppCompatActivity) Objects.requireNonNull(getActivity())).setSupportActionBar(toolbar);
+        Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setTitle("Resistor Calculator");
+
 
         ViewPager viewPager = rootView.findViewById(R.id.view_pager_resistor_calculator);
         TabLayout tabLayout = rootView.findViewById(R.id.tab_layout_resistor_calculator);
 
-        tabLayout.setTabTextColors(ContextCompat.getColorStateList(getContext(), R.color.white));
+        tabLayout.setTabTextColors(ContextCompat.getColorStateList(Objects.requireNonNull(getContext()), R.color.white));
 
         ColorsToResistFragment colorsToResistFragment = new ColorsToResistFragment();
         ResistanceCalculatorFragment resistanceCalculatorFragment = new ResistanceCalculatorFragment();

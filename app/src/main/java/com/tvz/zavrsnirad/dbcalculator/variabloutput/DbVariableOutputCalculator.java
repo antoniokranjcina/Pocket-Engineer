@@ -43,19 +43,19 @@ final class DbVariableOutputCalculator implements Calculator {
 
                 String spinnerValue = spinner.getSelectedItem().toString();
 
-                double outputPower;
-                try {
-                    outputPower = recalculateInWatts(spinnerValue, editTextOutputPower.getText().toString());
-                } catch (NumberFormatException e) {
-                    Toast.makeText(fragment.getActivity(), "Output Power cannot be empty.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+//                double outputPower;
+//                try {
+//                    outputPower = recalculateInWatts(spinnerValue, editTextOutputPower.getText().toString());
+//                } catch (NumberFormatException e) {
+//                    Toast.makeText(fragment.getActivity(), "Output Power cannot be empty.", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
 
                 switch (view.getId()) {
                     case R.id.wButton:
                         try {
                             double watts = Double.parseDouble(editTextWatts.getText().toString());
-                            calculatePowerWatts(outputPower, watts, editTextMilliWatts, editTextDb, editTextDbm);
+                            calculatePowerWatts(outputPower(fragment, spinnerValue, editTextOutputPower), watts, editTextMilliWatts, editTextDb, editTextDbm);
                         } catch (NumberFormatException e) {
                             Toast.makeText(fragment.getActivity(), "Watts Value cannot be empty.", Toast.LENGTH_SHORT).show();
                         }
@@ -63,7 +63,7 @@ final class DbVariableOutputCalculator implements Calculator {
                     case R.id.mwButton:
                         try {
                             double milliWatts = Double.parseDouble(editTextMilliWatts.getText().toString());
-                            calculatePowerMilliWatts(outputPower, milliWatts, editTextWatts, editTextDb, editTextDbm);
+                            calculatePowerMilliWatts(outputPower(fragment, spinnerValue, editTextOutputPower), milliWatts, editTextWatts, editTextDb, editTextDbm);
                         } catch (NumberFormatException e) {
                             Toast.makeText(fragment.getActivity(), "Milli Watts Value cannot be empty", Toast.LENGTH_SHORT).show();
                         }
@@ -71,7 +71,7 @@ final class DbVariableOutputCalculator implements Calculator {
                     case R.id.dbButton:
                         try {
                             double db = Double.parseDouble(editTextDb.getText().toString());
-                            calculatePowerDb(outputPower, db, editTextWatts, editTextMilliWatts, editTextDbm);
+                            calculatePowerDb(outputPower(fragment, spinnerValue, editTextOutputPower), db, editTextWatts, editTextMilliWatts, editTextDbm);
                         } catch (NumberFormatException e) {
                             Toast.makeText(fragment.getActivity(), "dB Value cannot be empty", Toast.LENGTH_SHORT).show();
                         }
@@ -79,7 +79,7 @@ final class DbVariableOutputCalculator implements Calculator {
                     case R.id.dbmButton:
                         try {
                             double dbm = Double.parseDouble(editTextDbm.getText().toString());
-                            calculatePowerDbm(outputPower, dbm, editTextWatts, editTextMilliWatts, editTextDb);
+                            calculatePowerDbm(outputPower(fragment, spinnerValue, editTextOutputPower), dbm, editTextWatts, editTextMilliWatts, editTextDb);
                         } catch (NumberFormatException e) {
                             Toast.makeText(fragment.getActivity(), "dBm Value cannot be empty", Toast.LENGTH_SHORT).show();
                         }
@@ -107,7 +107,21 @@ final class DbVariableOutputCalculator implements Calculator {
         editTextDbm.setText("");
     }
 
-    private static void calculatePowerWatts(double outputPower, double watts, EditText editTextMilliWatts, EditText editTextDb, EditText editTextDbm) {
+    private Double outputPower(Fragment fragment, String spinnerValue, EditText editTextOutputPower) {
+        try {
+            return recalculateInWatts(spinnerValue, editTextOutputPower.getText().toString());
+        } catch (NumberFormatException e) {
+            Toast.makeText(fragment.getActivity(), "Output Power cannot be empty.", Toast.LENGTH_SHORT).show();
+//            return 0;
+            return null;
+        }
+    }
+
+    private static void calculatePowerWatts(Double outputPower, double watts, EditText editTextMilliWatts, EditText editTextDb, EditText editTextDbm) {
+        if (outputPower == null) {
+            return;
+        }
+
         double milliWats = 1000 * watts;
         double db = 10 * Math.log10(watts / outputPower);
         double dbm = 10 * Math.log10(watts / (0.001 * outputPower));
@@ -117,7 +131,11 @@ final class DbVariableOutputCalculator implements Calculator {
         editTextDbm.setText(NumberFormatter.getInstance().formatInScientificNotation(dbm));
     }
 
-    private static void calculatePowerMilliWatts(double outputPower, double milliWatts, EditText editTextWatts, EditText editTextDb, EditText editTextDbm) {
+    private static void calculatePowerMilliWatts(Double outputPower, double milliWatts, EditText editTextWatts, EditText editTextDb, EditText editTextDbm) {
+        if (outputPower == null) {
+            return;
+        }
+
         double watts = milliWatts / 1000;
         double db = 10 * Math.log10(watts / outputPower);
         double dbm = 10 * Math.log10(watts / (0.001 * outputPower));
@@ -127,7 +145,11 @@ final class DbVariableOutputCalculator implements Calculator {
         editTextDbm.setText(NumberFormatter.getInstance().formatInScientificNotation(dbm));
     }
 
-    private static void calculatePowerDb(double outputPower, double db, EditText editTextWatts, EditText editTextMilliWatts, EditText editTextDbm) {
+    private static void calculatePowerDb(Double outputPower, double db, EditText editTextWatts, EditText editTextMilliWatts, EditText editTextDbm) {
+        if (outputPower == null) {
+            return;
+        }
+
         double watts = Math.pow(10, db / (10 * outputPower));
         double dbm = 10 * Math.log10(watts / (0.001 * outputPower));
         double milliWats = 1000 * watts;
@@ -137,7 +159,11 @@ final class DbVariableOutputCalculator implements Calculator {
         editTextDbm.setText(NumberFormatter.getInstance().formatInScientificNotation(dbm));
     }
 
-    private static void calculatePowerDbm(double outputPower, double dbm, EditText editTextWatts, EditText editTextMilliWatts, EditText editTextDb) {
+    private static void calculatePowerDbm(Double outputPower, double dbm, EditText editTextWatts, EditText editTextMilliWatts, EditText editTextDb) {
+        if (outputPower == null) {
+            return;
+        }
+
         double milliWats = Math.pow(10, dbm / (10 * outputPower));
         double watts = milliWats * 0.001;
         double db = 10 * Math.log10(watts / outputPower);
