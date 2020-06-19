@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Pocket Engineer</string>
 
-    <string name="decibel_calculator">dB</string>
-    <string name="capacitor_calculator">Cap Cal</string>
-    <string name="numbering_system_calculator">NumSysCal</string>
-    <string name="resistor_calculator">Res Cal</string>
-    <string name="angle_calculator">Angle Cal</string>
+    <string name="decibel_calculator">Decibel Calculator</string>
+    <string name="capacitor_calculator">Capacitor Calculator</string>
+    <string name="numbering_system_calculator">Numbering System Calculator</string>
+    <string name="resistor_calculator">Resistor Calculator</string>
+    <string name="angle_calculator">Angle Calculator</string>
 
     <string name="settings_menu_about">About</string>
     <string name="settings_menu_settings">Settings</string>

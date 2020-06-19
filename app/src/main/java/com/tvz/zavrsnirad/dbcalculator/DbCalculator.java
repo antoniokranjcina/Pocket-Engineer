@@ -1,8 +1,9 @@
 package com.tvz.zavrsnirad.dbcalculator;
 
-import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,8 @@ import com.tvz.zavrsnirad.util.ViewPagerAdapter;
 import java.util.Objects;
 
 public class DbCalculator extends Fragment {
+    private static final String TAG = "DbCalculator";
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Nullable
     @Override
@@ -35,10 +38,10 @@ public class DbCalculator extends Fragment {
         ((AppCompatActivity) Objects.requireNonNull(getActivity())).setSupportActionBar(toolbar);
         Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setTitle("Decibel Calculator");
 
-        ViewPager viewPager = rootView.findViewById(R.id.view_pager_db_calculator);
-        TabLayout tabLayout = rootView.findViewById(R.id.tab_layout_db_calculator);
+        final ViewPager viewPager = rootView.findViewById(R.id.view_pager_db_calculator);
+        final TabLayout tabLayout = rootView.findViewById(R.id.tab_layout_db_calculator);
 
-        tabLayout.setTabTextColors(ContextCompat.getColorStateList(Objects.requireNonNull(getContext()), R.color.white));
+        tabLayout.setTabTextColors(Color.parseColor("#ffffffff"), Color.parseColor("#03DAC5"));
 
         FixedOutputPowerFragment fixedOutputPowerFragment = new FixedOutputPowerFragment();
         VariableOutputPowerFragment variableOutputPowerFragment = new VariableOutputPowerFragment();
@@ -49,6 +52,7 @@ public class DbCalculator extends Fragment {
         viewPagerAdapter.addFragment(fixedOutputPowerFragment, "Fixed output");
         viewPagerAdapter.addFragment(variableOutputPowerFragment, "Variable output");
         viewPager.setAdapter(viewPagerAdapter);
+
 
         return rootView;
     }

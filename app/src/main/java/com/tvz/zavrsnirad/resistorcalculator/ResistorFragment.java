@@ -1,5 +1,6 @@
 package com.tvz.zavrsnirad.resistorcalculator;
 
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -41,7 +42,7 @@ public class ResistorFragment extends Fragment {
         ViewPager viewPager = rootView.findViewById(R.id.view_pager_resistor_calculator);
         TabLayout tabLayout = rootView.findViewById(R.id.tab_layout_resistor_calculator);
 
-        tabLayout.setTabTextColors(ContextCompat.getColorStateList(Objects.requireNonNull(getContext()), R.color.white));
+        tabLayout.setTabTextColors(Color.parseColor("#ffffffff"), Color.parseColor("#03DAC5"));
 
         ColorsToResistFragment colorsToResistFragment = new ColorsToResistFragment();
         ResistanceCalculatorFragment resistanceCalculatorFragment = new ResistanceCalculatorFragment();

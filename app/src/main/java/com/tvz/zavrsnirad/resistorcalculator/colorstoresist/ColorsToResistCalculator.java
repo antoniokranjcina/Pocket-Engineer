@@ -1,6 +1,9 @@
 package com.tvz.zavrsnirad.resistorcalculator.colorstoresist;
 
+import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -62,19 +65,19 @@ final class ColorsToResistCalculator implements com.tvz.zavrsnirad.Calculator {
 
                 if (getSelectedButtonId(radioGroupFirstDigit) != -1) {
                     rbFirstDigit = Integer.parseInt(radioButtonFirstDigit.getText().toString());
-                    updateColor(radioButtonFirstDigit, color1stDigit);
+                    updateColor(radioButtonFirstDigit, color1stDigit, rootView);
                 }
                 if (getSelectedButtonId(radioGroupSecondDigit) != -1) {
                     rbSecondDigit = Integer.parseInt(radioButtonSecondDigit.getText().toString());
-                    updateColor(radioButtonSecondDigit, color2ndDigit);
+                    updateColor(radioButtonSecondDigit, color2ndDigit, rootView);
                 }
                 if (getSelectedButtonId(radioGroupMultiply) != -1) {
                     rbMultiplier = readMultiplier(radioButtonMultiplier);
-                    updateColor(radioButtonMultiplier, colorMultiplier);
+                    updateColor(radioButtonMultiplier, colorMultiplier, rootView);
                 }
                 if (getSelectedButtonId(radioGroupTolerance) != -1) {
                     rbTolerance = radioButtonTolerance.getText().toString();
-                    updateColor(radioButtonTolerance, colorTolerance);
+                    updateColor(radioButtonTolerance, colorTolerance, rootView);
                 }
 
                 if (getSelectedButtonId(radioGroupFirstDigit) + getSelectedButtonId(radioGroupSecondDigit) + getSelectedButtonId(radioGroupMultiply) + getSelectedButtonId(radioGroupTolerance) > -3) {
@@ -114,10 +117,50 @@ final class ColorsToResistCalculator implements com.tvz.zavrsnirad.Calculator {
      * @param radioButton currently pressed button for reading color
      * @param textView    color for overriding new color
      */
-    private void updateColor(RadioButton radioButton, TextView textView) {
-        ColorDrawable buttonColor = (ColorDrawable) radioButton.getBackground();
-        int colorId = buttonColor.getColor();
+    private void updateColor(RadioButton radioButton, TextView textView, View rootView) {
+        int colorId = 0;
+        ColorDrawable buttonColor;
+        try {
+            buttonColor = (ColorDrawable) radioButton.getBackground();
+            colorId = buttonColor.getColor();
+        } catch (Exception e) {
+            switch (radioButton.getId()) {
+                case R.id.btn1stDigitBrown1:
+                case R.id.btnToleranceBrown1:
+                    colorId = Color.parseColor("#A0522D");
+                    break;
+                case R.id.btn1stDigitWhite9:
+                case R.id.btn2ndDigitWhite9:
+                    colorId = Color.parseColor("#ffffffff");
+                    break;
+                case R.id.btn2ndDigitBlack0:
+                case R.id.btnMultiplierBlackX1:
+                    colorId = Color.parseColor("#ff000000");
+                    break;
+                case R.id.btnMultiplierVioletX10M:
+                    colorId = Color.parseColor("#9400D3");
+                    break;
+                case R.id.btnMultiplierGold01:
+                case R.id.btnToleranceGold5:
+                    colorId = Color.parseColor("#FFD700");
+                    break;
+                case R.id.btnMultiplierSilver001:
+                case R.id.btnToleranceSilver10:
+                    colorId = Color.parseColor("#C0C0C0");
+                    break;
+                case R.id.btnToleranceRed2:
+                    colorId = Color.parseColor("#C51C1C");
+                    break;
+                case R.id.btnToleranceGreen05:
+                    colorId = Color.parseColor("#54BB87");
+                    break;
+                case R.id.btnToleranceGrey005:
+                    colorId = Color.parseColor("#B6A7A7");
+                    break;
 
+            }
+
+        }
         textView.setBackgroundColor(colorId);
     }
 
