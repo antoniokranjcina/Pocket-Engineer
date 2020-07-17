@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <include
         android:id="@+id/toolbar_numbering_system_cal"
@@ -61,39 +62,68 @@
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="@+id/spinner_in_base" />
 
-    <Button
-        android:id="@+id/button_convert_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/grey_button"
-        android:text="@string/button_convert"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/number_to_convert"
-        app:layout_constraintStart_toStartOf="@+id/number_to_convert"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_in_base" />
-
-    <Button
-        android:id="@+id/button_num_sys_calc_reset"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/fragment_res_linearLayout1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/red_button"
-        android:text="@string/button_reset"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/button_convert_number"
-        app:layout_constraintStart_toStartOf="@+id/button_convert_number"
-        app:layout_constraintTop_toBottomOf="@+id/button_convert_number" />
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="17" />
+
+        <Button
+            android:id="@+id/button_convert_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="30"
+            android:background="@drawable/grey_button"
+            android:text="@string/button_convert"
+            android:textColor="#FFFFFF" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="4" />
+
+        <Button
+            android:id="@+id/button_num_sys_calc_reset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="30"
+            android:background="@drawable/red_button"
+            android:text="@string/button_reset"
+            android:textColor="#FFFFFF" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="17" />
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/num_sys_cal_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/button_num_sys_calc_reset"
-        app:layout_constraintStart_toStartOf="@+id/button_num_sys_calc_reset"
-        app:layout_constraintTop_toBottomOf="@+id/button_num_sys_calc_reset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_res_linearLayout1"
         tools:text="Result" />
 </androidx.constraintlayout.widget.ConstraintLayout>

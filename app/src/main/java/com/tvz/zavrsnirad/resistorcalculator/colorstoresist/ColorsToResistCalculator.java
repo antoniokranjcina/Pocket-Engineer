@@ -1,9 +1,7 @@
 package com.tvz.zavrsnirad.resistorcalculator.colorstoresist;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;

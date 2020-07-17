@@ -20,7 +20,7 @@
 
     <!--    db calculator-->
     <string name="wattsText">W</string>
-    <string name="milli_watts_ext">mW</string>
+    <string name="milli_watts_text">mW</string>
     <string name="db_text">dB</string>
     <string name="dbm_text">dBm</string>
     <string name="watts_hint">Input Watts Value</string>
@@ -110,8 +110,8 @@
         <item>16</item>
     </string-array>
 
-    <string name="capacitor_1">C1</string>
-    <string name="capacitor_2">C2</string>
+    <string name="capacitor_1">Input C1 Value</string>
+    <string name="capacitor_2">Input C2 Value</string>
     <string name="serial">Serial </string>
     <string name="parallel">Parallel </string>
     <string-array name="spinner_capacitor_units">

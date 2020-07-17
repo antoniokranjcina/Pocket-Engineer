@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".dbcalculator.variabloutput.VariableOutputPowerFragment">
 
     <ScrollView
@@ -38,150 +39,286 @@
                 app:layout_constraintStart_toEndOf="@+id/outputPower"
                 app:layout_constraintTop_toTopOf="@+id/outputPower" />
 
-            <TextView
-                android:id="@+id/watsText"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/wattsText"
-                android:textColor="#000000"
-                app:layout_constraintBaseline_toBaselineOf="@+id/wattsEditText"
-                app:layout_constraintStart_toStartOf="@+id/milliWatsText" />
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/outputPower">
 
-            <TextView
-                android:id="@+id/milliWatsText"
-                android:layout_width="wrap_content"
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="3" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="17"
+                    android:text="@string/wattsText"
+                    android:textColor="#000000" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="4" />
+
+                <EditText
+                    android:id="@+id/wattsEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="45"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/watts_hint"
+                    android:inputType="numberSigned|numberDecimal"
+                    android:maxLength="10"
+                    android:textSize="15sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="5" />
+
+                <Button
+                    android:id="@+id/wButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="22"
+                    android:background="@drawable/grey_button"
+                    android:text="@string/button_convert"
+                    android:textColor="#FFFFFF" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="4" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/milli_watts_ext"
-                android:textColor="#000000"
-                app:layout_constraintBaseline_toBaselineOf="@+id/milliWattsEditText"
-                app:layout_constraintStart_toStartOf="@+id/dbText" />
-
-            <TextView
-                android:id="@+id/dbText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/db_text"
-                android:textColor="#000000"
-                app:layout_constraintBaseline_toBaselineOf="@+id/dbEditText"
-                app:layout_constraintStart_toStartOf="@+id/dBmText" />
-
-            <TextView
-                android:id="@+id/dBmText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginLeft="24dp"
-                android:text="@string/dbm_text"
-                android:textColor="#000000"
-                app:layout_constraintBaseline_toBaselineOf="@+id/dbmEditText"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <EditText
-                android:id="@+id/wattsEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:autofillHints=""
-                android:ems="10"
-                android:hint="@string/watts_hint"
-                android:inputType="numberSigned|numberDecimal"
-                android:textSize="15sp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/wButton"
-                app:layout_constraintStart_toStartOf="@+id/milliWattsEditText" />
-
-            <EditText
-                android:id="@+id/milliWattsEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:autofillHints=""
-                android:ems="10"
-                android:hint="@string/milli_watts_hint"
-                android:inputType="numberSigned|numberDecimal"
-                android:textSize="15sp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/mwButton"
-                app:layout_constraintStart_toStartOf="@+id/dbEditText" />
-
-            <EditText
-                android:id="@+id/dbEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:autofillHints=""
-                android:ems="10"
-                android:hint="@string/db_hint"
-                android:inputType="numberSigned|numberDecimal"
-                android:textSize="15sp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/dbButton"
-                app:layout_constraintStart_toStartOf="@+id/dbmEditText" />
-
-            <EditText
-                android:id="@+id/dbmEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:autofillHints=""
-                android:ems="10"
-                android:hint="@string/dbm_hint"
-                android:inputType="numberSigned|numberDecimal"
-                android:textSize="15sp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/dbmButton"
-                app:layout_constraintStart_toEndOf="@+id/dBmText" />
-
-            <Button
-                android:id="@+id/wButton"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/grey_button"
-                android:text="@string/button_convert"
-                android:textColor="#FFFFFF"
-                app:layout_constraintStart_toEndOf="@+id/wattsEditText"
-                app:layout_constraintTop_toBottomOf="@+id/outputPower" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-            <Button
-                android:id="@+id/mwButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/grey_button"
-                android:text="@string/button_convert"
-                android:textColor="#FFFFFF"
-                app:layout_constraintStart_toStartOf="@+id/wButton"
-                app:layout_constraintTop_toBottomOf="@+id/wButton" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="3" />
 
-            <Button
-                android:id="@+id/dbButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/grey_button"
-                android:text="@string/button_convert"
-                android:textColor="#FFFFFF"
-                app:layout_constraintStart_toStartOf="@+id/mwButton"
-                app:layout_constraintTop_toBottomOf="@+id/mwButton" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="17"
+                    android:text="@string/milli_watts_text"
+                    android:textColor="#000000" />
 
-            <Button
-                android:id="@+id/dbmButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:background="@drawable/grey_button"
-                android:text="@string/button_convert"
-                android:textColor="#FFFFFF"
-                app:layout_constraintStart_toStartOf="@+id/dbButton"
-                app:layout_constraintTop_toBottomOf="@+id/dbButton" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="4" />
 
-            <Button
-                android:id="@+id/resetPowerButton"
-                android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/milliWattsEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="45"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/milli_watts_hint"
+                    android:inputType="numberSigned|numberDecimal"
+                    android:maxLength="10"
+                    android:textSize="15sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="5" />
+
+                <Button
+                    android:id="@+id/mwButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="22"
+                    android:background="@drawable/grey_button"
+                    android:text="@string/button_convert"
+                    android:textColor="#FFFFFF" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="4" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/red_button"
-                android:text="@string/button_reset"
-                android:textColor="#FFFFFF"
-                app:layout_constraintStart_toStartOf="@+id/dbmButton"
-                app:layout_constraintTop_toBottomOf="@+id/dbmButton" />
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="3" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="17"
+                    android:text="@string/db_text"
+                    android:textColor="#000000" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="4" />
+
+                <EditText
+                    android:id="@+id/dbEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="45"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/db_hint"
+                    android:inputType="numberSigned|numberDecimal"
+                    android:maxLength="10"
+                    android:textSize="15sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="5" />
+
+                <Button
+                    android:id="@+id/dbButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="22"
+                    android:background="@drawable/grey_button"
+                    android:text="@string/button_convert"
+                    android:textColor="#FFFFFF" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="4" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="3" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="17"
+                    android:text="@string/dbm_text"
+                    android:textColor="#000000" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="4" />
+
+                <EditText
+                    android:id="@+id/dbmEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="45"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/dbm_hint"
+                    android:inputType="numberSigned|numberDecimal"
+                    android:maxLength="10"
+                    android:textSize="15sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="5" />
+
+                <Button
+                    android:id="@+id/dbmButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="22"
+                    android:background="@drawable/grey_button"
+                    android:text="@string/button_convert"
+                    android:textColor="#FFFFFF" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="4" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="74" />
+
+                <Button
+                    android:id="@+id/resetPowerButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="22"
+                    android:background="@drawable/red_button"
+                    android:text="@string/button_reset"
+                    android:textColor="#FFFFFF" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="4" />
+
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

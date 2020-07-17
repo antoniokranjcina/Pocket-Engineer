@@ -1,129 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <include
         android:id="@+id/toolbar_capacitor"
         layout="@layout/toolbar" />
 
-    <TextView
-        android:id="@+id/degree_text"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/degree_text"
-        android:textColor="#000000"
-        app:layout_constraintBaseline_toBaselineOf="@+id/degreeEditText"
-        app:layout_constraintStart_toStartOf="@+id/radian_text" />
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_capacitor">
 
-    <TextView
-        android:id="@+id/radian_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/radian_text"
-        android:textColor="#000000"
-        app:layout_constraintBaseline_toBaselineOf="@+id/radianEditText"
-        app:layout_constraintStart_toStartOf="@+id/gradient_text" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="3" />
 
-    <TextView
-        android:id="@+id/gradient_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="@string/gradient_text"
-        android:textColor="#000000"
-        app:layout_constraintBaseline_toBaselineOf="@+id/gradientEditText"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="17"
+            android:text="@string/degree_text"
+            android:textColor="#000000" />
 
-    <EditText
-        android:id="@+id/degreeEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/degree_hint"
-        android:inputType="numberSigned|numberDecimal"
-        android:maxLength="10"
-        android:textSize="15sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/degreeButton"
-        app:layout_constraintStart_toStartOf="@+id/radianEditText" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="4" />
 
-    <EditText
-        android:id="@+id/radianEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/radian_hint"
-        android:inputType="numberSigned|numberDecimal"
-        android:maxLength="10"
-        android:textSize="15sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/radianButton"
-        app:layout_constraintStart_toStartOf="@+id/gradientEditText" />
+        <EditText
+            android:id="@+id/degreeEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="45"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/degree_hint"
+            android:inputType="numberSigned|numberDecimal"
+            android:maxLength="10"
+            android:textSize="15sp" />
 
-    <EditText
-        android:id="@+id/gradientEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/gradient_hint"
-        android:inputType="numberSigned|numberDecimal"
-        android:maxLength="10"
-        android:textSize="15sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/gradientButton"
-        app:layout_constraintStart_toEndOf="@+id/gradient_text" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="5" />
 
-    <Button
-        android:id="@+id/degreeButton"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/degreeButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="22"
+            android:background="@drawable/grey_button"
+            android:text="@string/button_convert"
+            android:textColor="#FFFFFF" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="4" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/grey_button"
-        android:text="@string/button_convert"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toEndOf="@+id/degreeEditText"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_capacitor" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-    <Button
-        android:id="@+id/radianButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/grey_button"
-        android:text="@string/button_convert"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/degreeButton"
-        app:layout_constraintTop_toBottomOf="@+id/degreeButton" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="3" />
 
-    <Button
-        android:id="@+id/gradientButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/grey_button"
-        android:text="@string/button_convert"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/radianButton"
-        app:layout_constraintTop_toBottomOf="@+id/radianButton" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="17"
+            android:text="@string/radian_text"
+            android:textColor="#000000" />
 
-    <Button
-        android:id="@+id/resetAngleButton"
-        android:layout_width="wrap_content"
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="4" />
+
+        <EditText
+            android:id="@+id/radianEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="45"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/radian_hint"
+            android:inputType="numberSigned|numberDecimal"
+            android:maxLength="10"
+            android:textSize="15sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="5" />
+
+        <Button
+            android:id="@+id/radianButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="22"
+            android:background="@drawable/grey_button"
+            android:text="@string/button_convert"
+            android:textColor="#FFFFFF" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="4" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/red_button"
-        android:text="@string/button_reset"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/gradientButton"
-        app:layout_constraintTop_toBottomOf="@+id/gradientButton" />
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="3" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="17"
+            android:text="@string/gradient_text"
+            android:textColor="#000000" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="4" />
+
+        <EditText
+            android:id="@+id/gradientEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="45"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/gradient_hint"
+            android:inputType="numberSigned|numberDecimal"
+            android:maxLength="10"
+            android:textSize="15sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="5" />
+
+        <Button
+            android:id="@+id/gradientButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="22"
+            android:background="@drawable/grey_button"
+            android:text="@string/button_convert"
+            android:textColor="#FFFFFF" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="4" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="74" />
+
+        <Button
+            android:id="@+id/resetAngleButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="22"
+            android:background="@drawable/red_button"
+            android:text="@string/button_reset"
+            android:textColor="#FFFFFF" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="4" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
