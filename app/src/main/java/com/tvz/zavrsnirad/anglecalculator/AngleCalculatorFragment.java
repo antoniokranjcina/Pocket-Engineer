@@ -25,7 +25,7 @@ public class AngleCalculatorFragment extends Fragment {
         setHasOptionsMenu(false);
         View rootView = inflater.inflate(R.layout.fragment_angle_calculator, container, false);
 
-        Toolbar toolbar = rootView.findViewById(R.id.toolbar_capacitor);
+        Toolbar toolbar = rootView.findViewById(R.id.toolbar_angle);
         ((AppCompatActivity) Objects.requireNonNull(getActivity())).setSupportActionBar(toolbar);
         Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setTitle("Angle Calculator");
 

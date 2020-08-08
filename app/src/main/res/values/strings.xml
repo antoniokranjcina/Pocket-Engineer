@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Pocket Engineer</string>
 
+    <string name="fragment_angle_calculator">Angle Calculator Fragment</string>
+    <string name="fragment_capacitor">Capacitor Fragment</string>
+    <string name="fragment_db_calculator">DB Calculator Fragment</string>
+    <string name="fragment_numbering_system_calculator">Numbering System Fragment</string>
+    <string name="fragment_resistor_calculator">Resistor Calculator Fragment</string>
+
     <string name="decibel_calculator">Decibel Calculator</string>
     <string name="capacitor_calculator">Capacitor Calculator</string>
     <string name="numbering_system_calculator">Numbering System Calculator</string>

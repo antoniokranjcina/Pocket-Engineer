@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,120 +10,134 @@
         android:id="@+id/toolbar_numbering_system_cal"
         layout="@layout/toolbar" />
 
-    <EditText
-        android:id="@+id/number_to_convert"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:autofillHints=""
-        android:digits="0123456789ABCDEFabcdef"
-        android:ems="10"
-        android:hint="@string/enter_number_to_convert"
-        android:inputType="textNoSuggestions"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_numbering_system_cal"
-        tools:ignore="TextFields" />
-
-    <Spinner
-        android:id="@+id/spinner_from_base"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/number_to_convert"
-        app:layout_constraintTop_toBottomOf="@+id/number_to_convert" />
-
-    <Spinner
-        android:id="@+id/spinner_in_base"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="@+id/spinner_from_base"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_from_base" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/from"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner_from_base"
-        app:layout_constraintStart_toStartOf="@+id/number_to_convert"
-        app:layout_constraintTop_toTopOf="@+id/spinner_from_base" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/in"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner_in_base"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="@+id/spinner_in_base" />
-
-    <LinearLayout
-        android:id="@+id/fragment_res_linearLayout1"
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:weightSum="100"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar_numbering_system_cal"
+        android:layout_marginTop="10dp">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="17" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/button_convert_number"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_weight="30"
-            android:background="@drawable/grey_button"
-            android:text="@string/button_convert"
-            android:textColor="#FFFFFF" />
+            <EditText
+                android:id="@+id/number_to_convert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:digits="0123456789ABCDEFabcdef"
+                android:ems="10"
+                android:hint="@string/enter_number_to_convert"
+                android:inputType="textNoSuggestions"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TextFields" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="4" />
+            <Spinner
+                android:id="@+id/spinner_from_base"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/number_to_convert"
+                app:layout_constraintTop_toBottomOf="@+id/number_to_convert" />
 
-        <Button
-            android:id="@+id/button_num_sys_calc_reset"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_weight="30"
-            android:background="@drawable/red_button"
-            android:text="@string/button_reset"
-            android:textColor="#FFFFFF" />
+            <Spinner
+                android:id="@+id/spinner_in_base"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_from_base"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_from_base" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="17" />
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/from"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="@+id/spinner_from_base"
+                app:layout_constraintStart_toStartOf="@+id/number_to_convert"
+                app:layout_constraintTop_toTopOf="@+id/spinner_from_base" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/in"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="@+id/spinner_in_base"
+                app:layout_constraintStart_toStartOf="@+id/textView5"
+                app:layout_constraintTop_toTopOf="@+id/spinner_in_base" />
 
+            <LinearLayout
+                android:id="@+id/fragment_res_linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6">
 
-    <TextView
-        android:id="@+id/num_sys_cal_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_res_linearLayout1"
-        tools:text="Result" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="17" />
+
+                <Button
+                    android:id="@+id/button_convert_number"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_weight="30"
+                    android:background="@drawable/grey_button"
+                    android:text="@string/button_convert"
+                    android:textColor="#FFFFFF" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="4" />
+
+                <Button
+                    android:id="@+id/button_num_sys_calc_reset"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_weight="30"
+                    android:background="@drawable/red_button"
+                    android:text="@string/button_reset"
+                    android:textColor="#FFFFFF" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="17" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/num_sys_cal_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_res_linearLayout1"
+                tools:text="Result" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

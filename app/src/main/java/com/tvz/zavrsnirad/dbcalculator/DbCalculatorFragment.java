@@ -3,7 +3,6 @@ package com.tvz.zavrsnirad.dbcalculator;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -25,7 +23,7 @@ import com.tvz.zavrsnirad.util.ViewPagerAdapter;
 
 import java.util.Objects;
 
-public class DbCalculator extends Fragment {
+public class DbCalculatorFragment extends Fragment {
     private static final String TAG = "DbCalculator";
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
